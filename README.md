@@ -1,67 +1,85 @@
-# Manor Lords Multiplayer Mod
+<!--
+  Manor Lords Co-op Mod — Proprietary Software — All Rights Reserved.
+  See LICENSE in the repository root.
+  Unauthorized copying, modification, redistribution, derivative works,
+  reverse engineering, or AI/LLM training/extraction is strictly prohibited.
+-->
 
-Multiplayer mod for **Manor Lords** supporting up to **6 players** over **Steam P2P** (Co-op vs AI, PvP, and Free-for-All) with no port forwarding or dedicated server required.
+# Manor Lords Co-op Mod
+
+> **PROPRIETARY SOFTWARE — ALL RIGHTS RESERVED**
+> This repository is **source-available for inspection and personal, non-commercial gameplay only**.
+> It is **NOT open source**. Copying, modifying, redistributing, issuing unofficial updates/bug fixes, reverse engineering, or using any part of this codebase with AI/LLM tools to build, port, or reimplement competing projects is **strictly prohibited** without prior explicit written permission from the Copyright Holder.
+> See [`LICENSE`](LICENSE) for full binding legal and AI-policy terms.
+
+---
+
+## Overview
+
+**Manor Lords Co-op** brings true multi-lord multiplayer (co-op & PvP) to *Manor Lords* (tested on build `0.8.117`). Each player commands their own independent lord, region, economy, armies, and diplomacy inside a shared live world.
+
+### Key Features
+- **Independent Lords per Player (up to 6 players):** Every human player rules their own region, settlement, treasury, policies, and armies — alongside optional AI lords and the Baron.
+- **Full World & Construction Sync:** Point buildings, burgage plots, fields, pastures, marketplaces, castle/manor walls & gates, roads with native pathfinding, wooden bridges, upgrades, and live construction progress.
+- **Host-Authoritative Army, Mercenary & Combat Sync:** Synchronized militia, retinue customization, mercenary hiring/movement, squad formations/stances/skills/camps, Host-authoritative melee/ranged combat, HP, morale, routs, and casualties.
+- **Bidirectional Diplomacy & PvP:** War/peace declarations, alliances, territory claims, challenges, caravans, and raiding.
+- **Adaptive High-Speed Clock Sync (1x - 6x):** Rate matching, stall barriers, and lobby speed voting to keep peers synchronized even at high speeds.
+- **In-Game Overlay & Lobby Browser:** Steam relay / P2P & LAN lobbies, region/scenario selector, saved-game co-op support, ping markers, and map visit sync.
+- **Windows & Linux (Proton / Steam Deck) Support** in one unified release archive.
+
+---
 
 ## Download
 
-- **Direct Download (v1.0.0):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (`48.7 MB`)
+- **Direct Download (v1.0.0):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (48.7 MB)
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — currently going through Nexus's standard automated EXE security review)*
 
-**SHA-256 (`ManorLords_Multiplayer_Mod.zip`):**
-```text
-AC6ADA6C33186F4C7E2A37BBC3F3B504CFEA075AA39C3B91E23D02C1A0923038
-```
-
 ---
 
-## Features
-
-- **Up to 6 players** in a single session — **Co-op vs AI**, **PvP**, or **Free-for-All** with team/alliance support
-- **Steam P2P networking** — invite friends directly through Steam or join from the in-game lobby browser (no port forwarding needed)
-- **Built-in lobby UI & F10 overlay** — configure map, teams, AI lords, and match settings before launching
-- **Synced gameplay** — region claims, town building, castle planner, armies/combat, trade, diplomacy, and victory/defeat
-- **Save & load** — save multiplayer sessions and continue later with the same lobby
-- **Windows & Linux / Steam Deck (Proton)** cross-play support
-
----
-
-## Requirements
-
-- Steam version of **Manor Lords** (Steam must be running and logged in)
-- All players in the session must be on the **same mod version**
-
----
-
-## Installation
+## Quick Installation
 
 ### Windows
-
-1. Extract `ManorLords_Multiplayer_Mod.zip` into a clean ASCII path (for example: `C:\ManorLordsCoop`).
-2. Double-click **`1_INSTALL.bat`** (first-time setup or after updates).
-3. Double-click **`2_LAUNCH_GAME.bat`** to start the game (or launch Manor Lords from Steam and click **Multiplayer** in the Main Menu, or press **F10**).
+1. Download the official release archive from the **official GitHub Releases** or **official Nexus Mods** page.
+2. Extract the archive to an ASCII-only folder (e.g., `C:\ManorLordsCoop\`).
+3. Double-click **`1_INSTALL.bat`** (one-time setup — automatically detects Manor Lords and deploys UE4SS + the Co-op mod).
+4. Start the game via **`2_LAUNCH_GAME.bat`** (or directly through Steam after installation).
 
 ### Linux / Steam Deck (Proton)
-
-1. Extract `ManorLords_Multiplayer_Mod.zip` (for example: `~/ManorLordsCoop`).
-2. Open a terminal inside the extracted folder and run:
-   ```bash
-   bash 1_INSTALL_LINUX.sh
-   ```
-   *(If Manor Lords is in a custom Steam library: `bash 1_INSTALL_LINUX.sh --game-dir "/path/to/Manor Lords/ManorLords/Binaries/Win64"`)*
-3. In Steam → Right-click **Manor Lords** → **Properties → General → Launch Options**, paste the launch command printed by Step 2:
-   ```text
-   "/path/to/ManorLordsCoop/2_LAUNCH_GAME_LINUX.sh" %command%
-   ```
-4. Launch Manor Lords from Steam and click **Multiplayer** (or press **F10**). On Linux / Steam Deck, the lobby UI opens in your browser at `http://127.0.0.1:27065`.
+1. Extract the official release archive to a permanent folder.
+2. Run **`bash 1_INSTALL_LINUX.sh`** once to install the mod into your Steam / Proton directory.
+3. Configure Steam Launch Options to `"<path>/2_LAUNCH_GAME_LINUX.sh" %command%` (or `WINEDLLOVERRIDES="dwmapi=n,b" %command%`).
+4. See [`README.txt`](README.txt) for full Windows & Linux instructions.
 
 ---
 
-## Notes & Bug Reports
+## In-Game Controls & Hotkeys
 
-This is the first public release. Early, mid, and late game have been tested on our own setups, and community feedback from different hardware and longer sessions will help us iron out any remaining edge cases or desyncs.
+| Key | Action |
+|---|---|
+| `F10` | Open / close the Co-op Lobby & Multiplayer Overlay |
+| `F4` | In-game Host & Steward Menu |
+| `F7` | Diplomacy Panel |
+| `F5` | Manual Host-authoritative world sync (Host only) |
+| `F6` | Reload synced save (Client) |
+| `F8` | Drop forensic sync trace bookmark |
+| `Alt / Ctrl / Shift + MMB` | Tactical map ping marker visible to teammates |
 
-If you run into a desync or bug, run `3_COLLECT_AND_ANALYZE_LOGS.bat` (Windows) and share the generated sync log zip in our Discord or on the Nexus Mods page.
+---
 
-## License
+## Troubleshooting & Diagnostics
 
-All Rights Reserved — see [LICENSE](LICENSE) for full terms.
+If you encounter a desync or issue during a match:
+1. Press **`F8`** in-game to bookmark the exact moment.
+2. Run **`3_COLLECT_AND_ANALYZE_LOGS.bat`** after closing the game (on both Host and Client PCs).
+3. A diagnostic ZIP archive is generated on your Desktop containing `UE4SS.log`, `daemon.log`, and forensic sync trace summaries.
+
+---
+
+## Legal Notice, Exclusivity & Anti-AI Protection
+
+- **All Rights Reserved:** Copyright (c) 2026 Manor Lords Co-op Author. No open-source license is granted.
+- **Official Distribution Only:** Only the Copyright Holder is authorized to distribute, update, patch, or publish bug fixes for this mod. Unofficial forks, re-uploads, repacks, or third-party patches are strictly prohibited without prior explicit written permission from the Copyright Holder.
+- **No AI / LLM Extraction or Training:** All Text and Data Mining (TDM) and AI/LLM ingestion, training, extraction, refactoring, or reimplementation rights are expressly reserved under **EU Directive 2019/790 Article 4(3)** and **17 U.S.C. § 106**.
+- **Copyright Management Information (CMI):** Removing [`LICENSE`](LICENSE) or per-file copyright headers violates **17 U.S.C. § 1202 (DMCA)**.
+- **Third-Party Attribution:** MIT-licensed portions and third-party dependencies are documented in [`docs/THIRD_PARTY_NOTICES.md`](docs/THIRD_PARTY_NOTICES.md).
+- **Disclaimer:** Unofficial fan modification. Not affiliated with Slavic Magic or Hooded Horse.
