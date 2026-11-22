@@ -31,17 +31,23 @@
 
 ## Download
 
-- **Direct Download (v1.0.2):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (48.7 MB)
-- **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — currently going through Nexus's standard automated EXE security review)*
+- **Direct Download (v1.0.3):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (48.7 MB)
+- **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — use **Manual Download**, not Vortex)*
 
 ---
 
 ## Quick Installation
 
+> **Important — Manual Install Only (Do NOT use Vortex):**
+> - **Do NOT install via Vortex.** Vortex treats the bundled `UE4SS v4.0.0` as a standalone MLUE4SS replacement and skips the installer.
+> - **If you previously installed `MLUE4SS` (v3.0.1) or other UE4SS/PAK mods via Vortex, disable/remove them in Vortex first** — older `UE4SS v3.0.1` and outdated third-party mods crash Manor Lords `0.8.117` when starting a match.
+> - Running `1_INSTALL.bat` automatically backs up conflicting legacy UE4SS files (`_ue4ss_vortex_backup\`), installs the required **UE4SS v4.0.0 (UE 5.5)**, and warns if other third-party mods remain installed.
+> - **Requires Steam build `0.8.117`** (Steam beta branch).
+
 ### Windows
-1. Download the official release archive from the **official GitHub Releases** or **official Nexus Mods** page.
-2. Extract the archive to an ASCII-only folder (e.g., `C:\ManorLordsCoop\`).
-3. Double-click **`1_INSTALL.bat`** (one-time setup — automatically detects Manor Lords and deploys UE4SS + the Co-op mod).
+1. Download the official release archive from the **official GitHub Releases** or **official Nexus Mods** page (**Manual Download**).
+2. Extract the **entire** archive to an ASCII-only folder (e.g., `C:\ManorLordsCoop\`).
+3. Double-click **`1_INSTALL.bat`** (one-time setup — automatically detects Manor Lords, replaces any older Vortex UE4SS v3.0.1 with bundled UE4SS v4.0.0, and deploys the Co-op mod).
 4. Start the game via **`2_LAUNCH_GAME.bat`** (or directly through Steam after installation).
 
 ### Linux / Steam Deck (Proton)

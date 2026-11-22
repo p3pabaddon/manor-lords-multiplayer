@@ -13,7 +13,14 @@ COPYRIGHT & LICENSE NOTICE:
 
 PREREQUISITES:
 - Steam must be running and logged in.
-- Manor Lords must be installed via Steam.
+- Manor Lords must be installed via Steam (tested on build 0.8.117 / Steam beta branch).
+- MANUAL INSTALL ONLY (DO NOT USE VORTEX):
+  * Do NOT install this archive through Vortex.
+  * If you previously installed MLUE4SS (v3.0.1) or other Manor Lords mods via Vortex,
+    disable/remove them in Vortex first! Old UE4SS v3.0.1 and outdated UE4SS/PAK mods
+    will crash Manor Lords 0.8.117 when starting a match.
+  * 1_INSTALL.bat automatically backs up conflicting legacy UE4SS files into
+    _ue4ss_vortex_backup\ and installs the required bundled UE4SS v4.0.0 (UE 5.5).
 - NO port forwarding is required; all game traffic runs over Steam P2P.
 
 ============================================================
