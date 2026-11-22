@@ -31,7 +31,7 @@
 
 ## Download
 
-- **Direct Download (v1.0.3):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (48.7 MB)
+- **Direct Download (v1.0.4):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.5 MB)
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — use **Manual Download**, not Vortex)*
 
 ---
@@ -62,8 +62,9 @@
 
 | Key | Action |
 |---|---|
+| `F3` | Minimize or hide the top-left Realm Roster HUD (Full -> Minimized -> Hidden) |
 | `F10` | Open / close the Co-op Lobby & Multiplayer Overlay |
-| `F4` | In-game Host & Steward Menu |
+| `F4` | In-game Host & Steward Menu (including live Speed Control switcher) |
 | `F7` | Diplomacy Panel |
 | `F5` | Manual Host-authoritative world sync (Host only) |
 | `F6` | Reload synced save (Client) |

@@ -85,8 +85,11 @@ STEP 3 - PLAY:
 ============================================================
 - Top-Left Transparent HUD : Players, SteamID, ping (ms), ally/enemy
                              status, and live FPS.
+- F3                       : Minimize or hide the top-left Realm Roster HUD
+                             (cycles Full -> Minimized -> Hidden).
 - F4                       : In-game Host & Steward Menu (Cheats,
-                             Resource Multipliers, Host & Speed, Players).
+                             Resource Multipliers, Live Speed Control Mode,
+                             Players, and HUD display toggle).
 - F7                       : Diplomacy Panel (Ally / Neutral / Enemy +
                              Ally Attack / Backstab Confirmation).
 - F10                      : Toggle In-game Multiplayer Portal.
