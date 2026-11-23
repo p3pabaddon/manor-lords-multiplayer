@@ -12,7 +12,7 @@ COPYRIGHT & LICENSE NOTICE:
   the Copyright Holder. See LICENSE for full binding terms.
 
 SUPPORTED LANGUAGES (SELECTABLE LIVE IN MULTIPLAYER MENU):
-  English | Türkçe | Русский | Deutsch | 简体中文 | Français | Polski
+  English | Türkçe | Русский | Deutsch | 简体中文 | Français | Polski | Čeština
 
 PREREQUISITES:
 - Steam must be running and logged in.

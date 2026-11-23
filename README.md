@@ -25,14 +25,14 @@
 - **Bidirectional Diplomacy & PvP:** War/peace declarations, alliances, territory claims, challenges, caravans, and raiding.
 - **Adaptive High-Speed Clock Sync (1x - 6x):** Rate matching, stall barriers, and lobby speed voting to keep peers synchronized even at high speeds.
 - **In-Game Overlay & Lobby Browser:** Steam relay / P2P & LAN lobbies, region/scenario selector, saved-game co-op support, ping markers, and map visit sync.
-- **Full 7-Language Support:** Switch live between **English, Türkçe, Русский, Deutsch, 简体中文, Français, and Polski** directly from the Multiplayer Menu or Settings — covering the Portal UI, in-game Overlay/HUD, Main Menu button, notifications, and game language sync (with full Cyrillic & CJK font support).
+- **Full 8-Language Support:** Switch live between **English, Türkçe, Русский, Deutsch, 简体中文, Français, Polski, and Čeština** directly from the Multiplayer Menu or Settings — covering the Portal UI, in-game Overlay/HUD, Main Menu button, notifications, and game language sync (with full Cyrillic, Central European & CJK font support).
 - **Windows & Linux (Proton / Steam Deck) Support** in one unified release archive.
 
 ---
 
 ## Download
 
-- **Direct Download (v1.0.7):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.6 MB)
+- **Direct Download (v1.0.8):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.6 MB)
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — use **Manual Download**, not Vortex)*
 
 ---
