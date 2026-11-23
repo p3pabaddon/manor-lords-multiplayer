@@ -26,43 +26,35 @@
 - **Adaptive High-Speed Clock Sync (1x - 6x):** Rate matching, stall barriers, and lobby speed voting to keep peers synchronized even at high speeds.
 - **In-Game Overlay & Lobby Browser:** Steam relay / P2P & LAN lobbies, region/scenario selector, saved-game co-op support, ping markers, and map visit sync.
 - **Full 7-Language Support:** Switch live between **English, Türkçe, Русский, Deutsch, 简体中文, Français, and Polski** directly from the Multiplayer Menu or Settings — covering the Portal UI, in-game Overlay/HUD, Main Menu button, notifications, and game language sync (with full Cyrillic & CJK font support).
-- **Zero-Script Drop-In & Vortex Ready:** No `.bat`, `.ps1`, or `.sh` scripts required — drop the `ManorLords` folder into your game directory (or install via Vortex) and launch directly from Steam.
 - **Windows & Linux (Proton / Steam Deck) Support** in one unified release archive.
 
 ---
 
 ## Download
 
-- **Direct Download (v1.0.7):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.55 MB — zero-script drop-in / Vortex ready)
-- **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — supports both **Vortex / Mod Manager** and **Manual Download**)*
+- **Direct Download (v1.0.7):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.6 MB)
+- **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — use **Manual Download**, not Vortex)*
 
 ---
 
-## Quick Installation (No `.bat` / No Installer Needed!)
+## Quick Installation
 
-> **Important — Upgrading or Existing UE4SS Users:**
-> - **If you previously installed `MLUE4SS` (v3.0.1) or other UE4SS/PAK mods via Vortex, remove/disable them first** and delete any old `xinput1_3.dll` or root `UE4SS.dll` inside `ManorLords\Binaries\Win64\` — older `UE4SS v3.0.1` crashes Manor Lords `0.8.117`.
-> - This package already includes pre-configured **RE-UE4SS v4.0.0 (UE 5.5)** (`dwmapi.dll` + `ue4ss\UE4SS.dll`).
+> **Important — Manual Install Only (Do NOT use Vortex):**
+> - **Do NOT install via Vortex.** Vortex treats the bundled `UE4SS v4.0.0` as a standalone MLUE4SS replacement and skips the installer.
+> - **If you previously installed `MLUE4SS` (v3.0.1) or other UE4SS/PAK mods via Vortex, disable/remove them in Vortex first** — older `UE4SS v3.0.1` and outdated third-party mods crash Manor Lords `0.8.117` when starting a match.
+> - Running `1_INSTALL.bat` automatically backs up conflicting legacy UE4SS files (`_ue4ss_vortex_backup\`), installs the required **UE4SS v4.0.0 (UE 5.5)**, and warns if other third-party mods remain installed.
 > - **Requires Steam build `0.8.117`** (Steam beta branch).
 
-### Windows — Manual Drop-In (Recommended)
-1. Download [`ManorLords_Multiplayer_Mod.zip`](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (or from Nexus Mods).
-2. Open your Manor Lords game folder (`Steam -> Right-click Manor Lords -> Manage -> Browse local files`).
-3. Extract the **`ManorLords`** folder from the ZIP directly into your `Manor Lords` game folder (merge/overwrite if prompted).
-4. Launch Manor Lords normally via **Steam -> Play** and click **Multiplayer** in the Main Menu (or press **`F10`**).
-
-### Windows — Vortex / Mod Manager
-1. Download via **Mod Manager Download (Vortex)** on Nexus Mods and enable the mod.
-2. Deploy mods (make sure no conflicting legacy `MLUE4SS v3` / `xinput1_3.dll` mod is enabled).
-3. Launch Manor Lords normally via **Steam -> Play**!
+### Windows
+1. Download the official release archive from the **official GitHub** or **official Nexus Mods** page (**Manual Download**).
+2. Extract the **entire** archive to an ASCII-only folder (e.g., `C:\ManorLordsCoop\`).
+3. Double-click **`1_INSTALL.bat`** (one-time setup — automatically detects Manor Lords, replaces any older Vortex UE4SS v3.0.1 with bundled UE4SS v4.0.0, and deploys the Co-op mod).
+4. Start the game via **`2_LAUNCH_GAME.bat`** (or directly through Steam after installation).
 
 ### Linux / Steam Deck (Proton)
-1. Extract the **`ManorLords`** folder from the ZIP directly into your `Manor Lords` game directory.
-2. In Steam -> Right-click *Manor Lords* -> Properties -> **Launch Options**, set:
-   ```
-   WINEDLLOVERRIDES="dwmapi=n,b" %command%
-   ```
-3. Launch Manor Lords via Steam and open the Multiplayer Portal at `http://127.0.0.1:27065`.
+1. Extract the official release archive to a permanent folder.
+2. Run **`bash 1_INSTALL_LINUX.sh`** once to install the mod into your Steam / Proton directory.
+3. Configure Steam Launch Options to `"<path>/2_LAUNCH_GAME_LINUX.sh" %command%` (or `WINEDLLOVERRIDES="dwmapi=n,b" %command%`).
 4. See [`README.txt`](README.txt) for full Windows & Linux instructions.
 
 ---
@@ -84,9 +76,9 @@
 
 ## Troubleshooting & Diagnostics
 
-If you encounter a desync or issue during a match:
+If you encounter a desync or crash during a match:
 1. Press **`F8`** in-game to bookmark the exact moment.
-2. Open the Multiplayer Portal (**`F10`**) -> click **Settings** -> click **Export Sync Logs to Desktop** (no batch file required).
+2. Open the Multiplayer Portal (**`F10`**) -> **Settings** -> **Export Sync Logs to Desktop**, OR double-click **`3_COLLECT_AND_ANALYZE_LOGS.bat`** after closing the game (on both Host and Client PCs).
 3. A diagnostic ZIP archive (`ManorLords_SyncLog_*.zip`) and summary report are generated on your Desktop containing `UE4SS.log`, `daemon.log`, latest `CrashContext`, and forensic sync trace summaries.
 
 ---
