@@ -1,5 +1,6 @@
 ============================================================
-  MANOR LORDS CO-OP & PVP (STEAM P2P) - INSTALLATION GUIDE
+  MANOR LORDS MULTIPLAYER (CO-OP & PVP - STEAM P2P)
+  ZERO-SCRIPT DROP-IN INSTALLATION GUIDE (NEXUS EDITION)
 ============================================================
 
 COPYRIGHT & LICENSE NOTICE:
@@ -9,122 +10,102 @@ COPYRIGHT & LICENSE NOTICE:
   Releases). Modification, redistribution, unofficial forks/updates,
   reverse engineering, and AI/LLM ingestion or code extraction are
   strictly prohibited without prior explicit written permission from
-  the Copyright Holder. See LICENSE for full binding terms.
+  the Copyright Holder. See LICENSE_ManorLordsCoop.txt for full terms.
 
-PREREQUISITES:
-- Steam must be running and logged in.
-- Manor Lords must be installed via Steam (tested on build 0.8.117 / Steam beta branch).
-- MANUAL INSTALL ONLY (DO NOT USE VORTEX):
-  * Do NOT install this archive through Vortex.
-  * If you previously installed MLUE4SS (v3.0.1) or other Manor Lords mods via Vortex,
-    disable/remove them in Vortex first! Old UE4SS v3.0.1 and outdated UE4SS/PAK mods
-    will crash Manor Lords 0.8.117 when starting a match.
-  * 1_INSTALL.bat automatically backs up conflicting legacy UE4SS files into
-    _ue4ss_vortex_backup\ and installs the required bundled UE4SS v4.0.0 (UE 5.5).
-- NO port forwarding is required; all game traffic runs over Steam P2P.
+SUPPORTED LANGUAGES (SELECTABLE IN MULTIPLAYER MENU):
+  English | Türkçe | Русский | Deutsch | 简体中文 | Français | Polski
 
 ============================================================
-  WINDOWS INSTALLATION & LAUNCH
+  PREREQUISITES & CLEANUP (IMPORTANT!)
 ============================================================
-STEP 1 - INSTALL (First-time setup or after updates):
-1. Extract this folder from the ZIP into an ASCII-only path
-   (for example: C:\ManorLordsCoop).
-2. Double-click "1_INSTALL.bat".
-
-STEP 2 - LAUNCH THE GAME:
-1. Double-click "2_LAUNCH_GAME.bat" (launches Manor Lords via Steam).
-   (Alternatively, launch Manor Lords directly from Steam and click
-   "Multiplayer" in the Main Menu, or press F10.)
+- Steam must be running and logged in (NO port forwarding needed; all
+  networking runs securely over Steamworks P2P).
+- Tested on Manor Lords Steam build 0.8.117 (UE 5.5).
+- IMPORTANT - IF YOU PREVIOUSLY INSTALLED AN OLDER UE4SS / MLUE4SS:
+  Before installing, remove/disable legacy MLUE4SS v3.0.1 in Vortex and
+  delete any old "xinput1_3.dll" or root "UE4SS.dll" inside:
+    ...\steamapps\common\Manor Lords\ManorLords\Binaries\Win64\
+  This package already includes the exact required RE-UE4SS v4.0.0
+  (dwmapi.dll + ue4ss\UE4SS.dll) pre-configured for Manor Lords 0.8.117.
 
 ============================================================
-  LINUX / STEAMOS (PROTON) INSTALLATION & LAUNCH
+  WINDOWS INSTALLATION (NO .BAT / NO INSTALLER NEEDED!)
 ============================================================
-- Cross-play between Windows Host <-> Linux Client works with the
-  exact same version. On Linux/Steam Deck, the Co-op Portal opens in
-  your web browser (http://127.0.0.1:27065) instead of WebView2 HUD.
+OPTION A - MANUAL DROP-IN (RECOMMENDED):
+  1. Open your Manor Lords game folder in Steam:
+     Steam -> Right-click Manor Lords -> Manage -> Browse local files
+     (e.g. ...\steamapps\common\Manor Lords\)
+  2. Extract the "ManorLords" folder from this ZIP directly into your
+     "Manor Lords" game folder (merge/overwrite if prompted).
+     Verify that "dwmapi.dll" sits next to "ManorLords-Win64-Shipping.exe"
+     inside: ManorLords\Binaries\Win64\
+  3. Launch Manor Lords normally via Steam -> Play!
+     Click "Multiplayer" in the Main Menu (or press F10).
 
-STEP 1 - INSTALL (Terminal):
-1. Extract this folder anywhere (e.g. ~/ManorLordsCoop).
-2. Open a terminal inside the folder and run:
-     bash 1_INSTALL_LINUX.sh
-   (Custom game path:
-     bash 1_INSTALL_LINUX.sh --game-dir "/path/to/Manor Lords/ManorLords/Binaries/Win64")
+OPTION B - VORTEX / MOD MANAGER:
+  1. Download with Mod Manager (Vortex) and enable the mod.
+  2. Deploy mods (make sure no conflicting MLUE4SS v3 / xinput1_3.dll mod
+     is active at the same time).
+  3. Launch Manor Lords normally via Steam -> Play!
 
-STEP 2 - STEAM LAUNCH OPTIONS (REQUIRED ON PROTON):
-  Steam -> Right-click Manor Lords -> Properties -> General -> Launch Options
-  Set to (copy the exact path printed by Step 1):
-    "/path/to/ManorLordsCoop/2_LAUNCH_GAME_LINUX.sh" %command%
-  (Minimal alternative: WINEDLLOVERRIDES="dwmapi=n,b" %command%)
-
-STEP 3 - PLAY:
-  Launch Manor Lords via Steam, then click "Multiplayer" (or press F10).
-  On Steam Deck Game Mode, open http://127.0.0.1:27065 in Steam Browser.
+============================================================
+  LINUX / STEAMOS (PROTON) INSTALLATION
+============================================================
+  1. Extract the "ManorLords" folder from this ZIP directly into your
+     "Manor Lords" game folder (same as Windows Option A).
+  2. In Steam -> Right-click Manor Lords -> Properties -> Launch Options:
+       WINEDLLOVERRIDES="dwmapi=n,b" %command%
+  3. Launch Manor Lords via Steam and click "Multiplayer" (or press F10).
+     On Linux/Steam Deck, the Multiplayer Portal opens at:
+       http://127.0.0.1:27065
 
 ============================================================
   HOW TO PLAY
 ============================================================
 - HOST (Co-op / PvP / Free Diplomacy):
-  1. Click "Multiplayer" (or press F10) in-game to open the integrated
-     Multiplayer Portal.
-  2. Follow "+ Create Lobby" -> Save Selection -> Character & Coat of Arms
-     -> Map Region Selection & Game Settings.
-  3. Open your room as Public or Password-Protected Private.
+  1. Click "Multiplayer" in the Main Menu (or press F10) to open the
+     integrated Multiplayer Portal.
+  2. Use the top-right language dropdown to choose your language at any time.
+  3. Follow "+ Create Lobby" -> Save Selection -> Lord & Coat of Arms
+     -> Map Region Selection & Game Rules.
+  4. Host as a Public or Password-Protected Private lobby.
 
-- CLIENT (Joining & Drop-in Live Sync):
-  1. Click a Public/Private room in the lobby browser (or enter SteamID /
-     Lobby Code via Direct Join).
-  2. Click "Select / Edit Character" in the bottom-right of the lobby to
-     confirm your lord, pick your starting region on the map, and click
-     "Ready".
-  3. Even if a match is already in progress, clicking "Join Active Game
-     (Live Sync)" automatically pauses the world, syncs the save, and
-     drops you in.
+- CLIENT (Joining & Live Drop-In Sync):
+  1. Pick a room in the Lobby Browser or use Direct Join (Lobby Code /
+     Host SteamID64).
+  2. Customize your Lord & Coat of Arms, pick your starting region on the
+     map, and click "Ready".
+  3. Late-joining an active match is supported via "Join Active Game
+     (Live Sync)".
 
 ============================================================
   IN-GAME HOTKEYS
 ============================================================
-- Top-Left Transparent HUD : Players, SteamID, ping (ms), ally/enemy
-                             status, and live FPS.
-- F3                       : Minimize or hide the top-left Realm Roster HUD
-                             (cycles Full -> Minimized -> Hidden).
-- F4                       : In-game Host & Steward Menu (Cheats,
-                             Resource Multipliers, Live Speed Control Mode,
-                             Players, and HUD display toggle).
-- F7                       : Diplomacy Panel (Ally / Neutral / Enemy +
-                             Ally Attack / Backstab Confirmation).
-- F10                      : Toggle In-game Multiplayer Portal.
-- F5 (Host)                : World Sync (pauses all players, Host saves,
-                             everyone reloads in sync).
+- Top-Left HUD             : Players, ping (ms), ally/enemy status, FPS.
+- F3                       : Minimize / hide top-left HUD (Full -> Mini -> Hidden).
+- F4                       : Host & Steward Panel (Speed Control Mode,
+                             Cheats, Resource Multipliers, Players).
+- F7                       : Diplomacy & Trade Caravans Panel.
+- F10                      : Toggle Multiplayer Portal.
+- F5 (Host)                : Manual World Sync snapshot to all peers.
 - F6 (Client)              : Reload Synced Save.
-- F8                       : Drop a Forensic Sync Trace Bookmark.
+- F8                       : Drop Forensic Sync Trace Bookmark.
 - F9                       : Show Speed Vote Status.
-- Alt / Ctrl / Shift + MMB : Tactical Map Pings (Attack / Defend / Build,
-                             visible to all players for 15 seconds).
+- Alt / Ctrl / Shift + MMB : Tactical Map Pings (Attack / Defend / Build).
 
 ============================================================
-  IMPORTANT NOTES & DIAGNOSTICS
+  EXPORTING DIAGNOSTIC LOGS (BUG REPORTS)
 ============================================================
-- Every player starts with their OWN lord, retinue, and village in their
-  chosen map region (native multi-lord campaign).
-- ALL players must run the EXACT same ManorLordsCoop version (run
-  1_INSTALL.bat / 1_INSTALL_LINUX.sh on every PC; CRC checks prevent
-  version mismatches).
-- Synchronized systems include:
-  * Buildings, roads, wooden bridges, burgage plots, fields, upgrades,
-    demolitions, priorities, workers, tax/trade/production settings.
-  * Castle Planner, manor walls, towers, gates, wood/stone wall tiers,
-    and platform levels.
-  * Host-authoritative combat & armies: melee/ranged hits, HP, morale,
-    stamina, routs, deaths, mercenaries, formations, stances, and skills.
-  * Retinue customization, claims, challenges, King's Favour, royal tax,
-    Victory/GameOver, caravans, diplomacy, policies, weather, raids,
-    fires, and Visit Mode.
-  * Adaptive game-day & speed synchronization (1x-6x), speed voting,
-    stall barrier, and periodic World Sync.
-- If you encounter a desync (Windows): press F8 in-game to drop a
-  bookmark, then double-click "3_COLLECT_AND_ANALYZE_LOGS.bat" on both
-  PCs to package your trace logs cleanly to your Desktop.
-- Linux/Proton log paths:
-  1. <Manor Lords>/ManorLords/Binaries/Win64/ue4ss/UE4SS.log
-  2. <SteamLibrary>/steamapps/compatdata/1363080/pfx/drive_c/users/steamuser/AppData/Local/ManorLords/Saved/CoopIPC/daemon.log
+- No batch script needed! Open the Multiplayer Portal (F10) -> click
+  "Settings" -> click "Export Sync Logs to Desktop".
+- This creates a ready-to-share ZIP archive (ManorLords_SyncLog_*.zip)
+  and summary report on your Desktop containing your sync trace,
+  daemon.log, UE4SS.log, and latest UE5 CrashContext (if any).
+
 ============================================================
+  UNINSTALLING
+============================================================
+- Delete the following from ...\Manor Lords\ManorLords\Binaries\Win64\:
+    * dwmapi.dll
+    * ue4ss\  (folder)
+- (Or simply click Uninstall/Disable in Vortex.)
