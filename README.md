@@ -32,11 +32,14 @@
 
 ## Download
 
-- **Direct Download (v1.0.10):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.11):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.10
+### What's Fixed in v1.0.11
+- **Castle Creator Wall-Rebuild CTD Fix (`coopnative v0.8.2`):** Added a signature-verified native guard (`castleWallSnapGuard` at `0x4D47B20`) preventing `EXCEPTION_ACCESS_VIOLATION reading 0x8` (`+0x4D47CED`) inside Castle Planner (`RefreshCastlePlanner`) when rebuilding or opening Castle Creator on a wall whose `smoothPoints` spline array is empty after a save reload.
+
+### Previous (v1.0.10)
 - **Foreign Trader CTD Fix (`coopnative v0.8.1`):** Fixed a vanilla Manor Lords `0.8.117` (`26185246`) null-pointer crash at `ManorLords-Win64-Shipping+0x4E01B0C` (`reading 0x648` in `ASMUnit::transferGood` when a foreign trader buys goods) with a signature-verified runtime guard, alongside the `APawnCPP::extractSmoothSide` guard, dynamic UE5 reflection offset sync, and an in-process C++ Steamworks P2P bridge.
 - **Persistent Desync & Pull-Loop Fixes (`bld`, `econ`, `combat`, `squad`):**
   - `SC.hash_bld` now skips auto-spawned / non-placeable types (market stalls `91–93`, tents, carts, rubble, bridges, army camps, AI plots) and matches `bld_sync` ownership rules.

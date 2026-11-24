@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.10",
-    "nativeVersion":  "0.8.1",
-    "traceVersion":  "v55_SyncSecurityAndCrashFix",
+    "version":  "1.0.11",
+    "nativeVersion":  "0.8.2",
+    "traceVersion":  "v56_CastleWallCrashFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-24T19:34:09Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.10.zip",
-    "patchSha256":  "8F5BFC8C683B13AF4C9C42A0779E08DBC126355C754F2F0BD5C33EC8B51D5AC8",
-    "patchBytes":  1011267,
+    "releasedAt":  "2026-11-24T20:07:55Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.11.zip",
+    "patchSha256":  "0ECAAC95C2BC40E28ACA635868BF9E4009AFE4319745B65CEEB48B439A5BF82F",
+    "patchBytes":  1011567,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "C61EF0E91CBEAB1DFC12BBE2FF61844F8DECAA8D39478EF119BAE6A416C63E16",
-    "fullBytes":  49967250,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.10",
-    "notes":  "- Fixed 79-min foreign trader CTD at ManorLords+0x4E01B0C (coopnative v0.8.1) \u0026 APawnCPP::extractSmoothSide CTD\n- Fixed persistent bld/econ/combat/squad sync.pull loops (market stalls, livestock/capacity stock sync, idle combat/bandit guards)\n- Hardened save-sync security (strict slotName sanitization, path containment, buffer/chunk bounds, localhost CSRF/Origin/Content-Type)\n- Added in-process Steamworks bridge, dynamic UE5 reflection offsets, native alerts \u0026 1-click delta updater"
+    "fullSha256":  "9BAFDB803E044D8EA012325A94273927B074BB0B72A2735EF1521E1DBFA0E384",
+    "fullBytes":  49967550,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.11",
+    "notes":  "- Fixed Castle Creator wall-rebuild CTD at ManorLords+0x4D47CED (reading 0x8 on empty wall spline, coopnative v0.8.2)\n- Includes Foreign Trader CTD fix (+0x4E01B0C), APawnCPP::extractSmoothSide guard, bld/econ/combat/squad sync loop fixes \u0026 save-transfer/UI security hardening"
 }
