@@ -1,0 +1,15 @@
+{
+    "version":  "1.0.10",
+    "nativeVersion":  "0.8.1",
+    "traceVersion":  "v55_SyncSecurityAndCrashFix",
+    "minBaseVersion":  "1.0.8",
+    "releasedAt":  "2026-11-24T19:34:09Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.10.zip",
+    "patchSha256":  "8F5BFC8C683B13AF4C9C42A0779E08DBC126355C754F2F0BD5C33EC8B51D5AC8",
+    "patchBytes":  1011267,
+    "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
+    "fullSha256":  "C61EF0E91CBEAB1DFC12BBE2FF61844F8DECAA8D39478EF119BAE6A416C63E16",
+    "fullBytes":  49967250,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.10",
+    "notes":  "- Fixed 79-min foreign trader CTD at ManorLords+0x4E01B0C (coopnative v0.8.1) \u0026 APawnCPP::extractSmoothSide CTD\n- Fixed persistent bld/econ/combat/squad sync.pull loops (market stalls, livestock/capacity stock sync, idle combat/bandit guards)\n- Hardened save-sync security (strict slotName sanitization, path containment, buffer/chunk bounds, localhost CSRF/Origin/Content-Type)\n- Added in-process Steamworks bridge, dynamic UE5 reflection offsets, native alerts \u0026 1-click delta updater"
+}
