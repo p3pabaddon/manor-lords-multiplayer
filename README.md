@@ -32,8 +32,13 @@
 
 ## Download
 
-- **Direct Download (v1.0.8):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.6 MB)
+- **Direct Download (v1.0.9):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.6 MB)
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465 *(exact same archive — use **Manual Download**, not Vortex)*
+
+### What's Fixed in v1.0.9
+- **Mid-Game CTD Fix (`coopnative v0.7.3`):** Added a native detour guarding `APawnCPP::extractSmoothSide` (`0x4B3FC90`) against null `ownerPawn` during building setup/completion, auto-healed missing `ownerPawn` from `Region`, routed all `bld_sync` upgrades/rebuilds through SEH-guarded `BeginUpgrade`, and eliminated `[bld]` AI-plot and idle bandit camp `sync.pull` spam.
+- **Host Strategic Paper Map Fix:** Mirrored `PaperMapViewChanged`, `setMapMode`, `AResourceNode` decals, `mapPlane` material binding, and MPC zoom/desaturation flags across human pawns so the Host sees all hand-drawn icons, resource decals, settlements, and enemy camps on the Paper Map.
+- **Forensic Log Collector & Exporter Fix:** Replaced the broken CMD-quoted PowerShell block in `3_COLLECT_AND_ANALYZE_LOGS.bat` with `tools/collect_logs.ps1`, added UTF-8 Windows Known Folder / OneDrive / Cyrillic / Turkish Desktop resolution + Steam registry `UE4SS.log` detection in both the `.bat` and in-game exporter, and fixed NTFS junction path matching in `analyze_sync_trace.mjs`.
 
 ---
 
