@@ -32,11 +32,17 @@
 
 ## Download
 
-- **Direct Download (v1.0.13):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.14):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.13
+### What's Fixed in v1.0.14
+- **Instant Lobby Kick Fix (`coopnative v0.8.5`):** Added lobby-relayed reliable keepalive heartbeats and lobby control fallback (`HANDSHAKE`, `LOBBY_STATE`, `CLIENT_READY`, `START_MATCH`, `PING`/`PONG`), plus raised Steam SDR `TimeoutInitial` (`10s -> 25s`) and `TimeoutConnected` (`20s -> 30s`), preventing clients from being kicked ~12s after joining a lobby when Steam P2P takes longer to connect or drops a relay route.
+- **Steam P2P Channel-1 Recovery (`eResult=35`):** Properly closes and re-accepts failed Valve SDR sessions on `session_failed` and enables `AutoRestartBrokenSession` on both reliable and unreliable sends in `coopnative.dll` and `SteamBridge.exe`.
+- **Mid-Game Disconnect & Transparent Re-Attach Fix:** Raised default peer/host silence timeouts to `30s`/`35s` (and `45s` while waiting in a live Steam lobby), removed the aggressive `4.5s` drop after transient `session_failed`, and added seamless 120s peer re-attach so returning mid-match traffic restores full bidirectional sync on the original peer slot instead of creating a dead ghost peer (`peers=0`).
+- **Clean Leave Ghost Suppression:** Ignores trailing in-flight packets for 3s after a clean `PEER_LEAVE` / kick (while allowing immediate fresh rejoins) so departed players never respawn as empty phantom peers.
+
+### Previous (v1.0.13)
 - **Host Ambient-Sound CTD Fix (`coopnative v0.8.4`):** Added an AOB-verified native guard (`unitLocRefGuard` at `0x4DB81B0`) preventing `EXCEPTION_ACCESS_VIOLATION` (`+0x4DB81BF`) when `ASMUnit::getLocationRef` reads an invalid/non-canonical `masterPtr`.
 - **Client-Raised Militia & Mercenary Squad Protection:** Fixed Host `census[cN]` and Client `calive` mutually killing freshly raised Client soldiers within a minute (fixing permanent villager loss, greyed-out Militia redeploy, undeplyable Mercenaries draining Treasury, and shrinking squads while marching home).
 - **Phantom Extra-Unit Spike Fix:** Stopped per-soldier `spawnCompleteUnit` calls on squadded units (which spawned full 36-man squads per AI Manor retainer, causing `+343` extra units and sustained CPU load).

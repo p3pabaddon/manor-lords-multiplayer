@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.13",
-    "nativeVersion":  "0.8.4",
-    "traceVersion":  "v58_CombatSpawnTradeCampFixes",
+    "version":  "1.0.14",
+    "nativeVersion":  "0.8.5",
+    "traceVersion":  "v59_SteamP2PLobbyKeepaliveReconnect",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-25T10:14:39Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.13.zip",
-    "patchSha256":  "433720B576DB286721200F87B98D2E87C9E1F2A6427BD1DDE89545971B38DE10",
-    "patchBytes":  1027350,
+    "releasedAt":  "2026-11-25T15:41:58Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.14.zip",
+    "patchSha256":  "D133CC46E6F2C21DF2309709B7C45B0E2704137737210A3A3A537DF24D9FD67D",
+    "patchBytes":  1032520,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "B48720616461036B46916A9CC33C62BF25E1D3C8C48958EEDF565E0D07EEA293",
-    "fullBytes":  49983333,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.13",
-    "notes":  "- Fixed Host CTD at ManorLords+0x4DB81BF (ASMUnit::getLocationRef with invalid/non-canonical masterPtr, coopnative v0.8.4)\n- Fixed Client-raised Militia \u0026 Mercenary squads being mutually killed on both PCs within 1 minute (Host census[cN] \u0026 Client calive protection)\n- Fixed +343 extra-unit explosion (5x36=180 per AI Manor) caused by per-soldier spawnCompleteUnit calls\n- Blocked Non-Host from moving/dragging/rallying Host allied squads natively \u0026 in Lua (and fixed RequestDisbandSquadDetour isAI offset 0xB80 -\u003e 0x34D)\n- Fixed Foreign Merchants rubberbanding backwards / losing carts at Client Trading Posts + synced regional tradeRules, targetInventory, tradeRouteLevels \u0026 globalTradeAllowed in delta.lua\n- Fixed Bandit Camps respawning infinitely after Client looted them (Client-\u003eHost campCleared sync + 120s respawn guard)\n- Fixed Non-Host 3x3 rain sheet stuck in one area after Server Sync Save (WeatherMaster rebind + silencing non-local human pawn Niagara/Particle/Audio FX)\n- Fixed [squad] lord=5 per-lord mode, [combat] idle-vs-active pacing/melee drift, and [bld] bType=13 Marketplace + upgrade-chain sibling matching (30/97, 72/99, 80/68, 7/52, 21/114)"
+    "fullSha256":  "F18CE2AF0D9F242DF8D3CCF9B11DD501A5F3E64FD6AE91C672A3E4AD433150EE",
+    "fullBytes":  49988503,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.14",
+    "notes":  "- Fixed players getting immediately kicked (~12s) right after joining a lobby when Steam P2P took longer to connect or dropped a relay route (lobby-relayed keepalive heartbeats + extended Steam connection headroom, coopnative v0.8.5)\n- Fixed Steam P2P channel stalls (eResult=35) by properly closing \u0026 auto-restarting failed sessions in both in-process coopnative.dll and standalone SteamBridge.exe\n- Fixed mid-game disconnects during brief network blips (relaxed peer/host timeouts to 30s/35s and removed aggressive 4.5s drop on transient relay hiccups)\n- Fixed mid-game ghost-peer desync after temporary timeouts: returning players now transparently re-attach to their existing peer slot with full two-way sync instead of turning into an unresponsive ghost peer\n- Suppressed trailing in-flight packets after clean player leave so phantom peers are no longer spawned"
 }
