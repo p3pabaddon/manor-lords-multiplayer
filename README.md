@@ -32,11 +32,18 @@
 
 ## Download
 
-- **Direct Download (v1.0.11):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.12):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.11
+### What's Fixed in v1.0.12
+- **Client Storage-Cache CTD Fix (`coopnative v0.8.3`):** Added a signature-verified native guard (`storageCacheGuard` at `0x4C49280`) preventing `EXCEPTION_ACCESS_VIOLATION reading 0x1E0` (`+0x4C492A1`) in `ARegion::updateStorageCache` when `ASMUnit::performHit(12)` calls it with a null `unit->Region`, paired with Lua `Region` initialization/repair in `npc_mirror.lua`, a 60m civilian bind cap, and automatic release of persistently unbound non-combat extras.
+- **Late-Join Steam Thread Heap Corruption CTD Fix (`0xC0000374`):** Serialized 100% of in-process Steamworks API calls onto UE5's `OnlineAsyncTaskThreadSteam` via an atomic Delay-Import/Import IAT hook on `SteamAPI_RunCallbacks`, eliminating concurrent mutations of Steamworks' unsynchronized `m_mapCallResults` RB-tree; added `COOP_FORCE_EXTERNAL_STEAM_BRIDGE=1` / `forceExternalSteamBridge` config toggle for A/B testing.
+- **Paused Bandit Squad `[squad] lord=5` False Mismatch Fix:** Added an explicit `sqMode` (`"count"` / `"pos"`) field to `sync.hash` so Host and Client always hash `lord=5` in the exact same format, paired with a pause-aware combat clock and Client-side combat window aging.
+- **Steam Outage / Re-Logon Resilience:** Prevented the lobby from falsely disbanding as `host_left` (or dropping active peers as `left_lobby`) when Steam momentarily drops lobby membership during a CM outage while P2P traffic stays alive, and added automatic non-destructive `rejoin_lobby` on `SteamServersConnected_t`.
+- **Late-Join AI Lord Slot/Region Swap Fix:** Fixed brand-new late-joiners hijacking a running AI lord's pawn slot and region; late-joiners now spawn a fresh lord in their chosen open region, AI spawn assignments stay frozen while `in_game`, and crashed teammates reclaim their original human lord slot by SteamID even with a new `peerId`.
+
+### Previous (v1.0.11)
 - **Castle Creator Wall-Rebuild CTD Fix (`coopnative v0.8.2`):** Added a signature-verified native guard (`castleWallSnapGuard` at `0x4D47B20`) preventing `EXCEPTION_ACCESS_VIOLATION reading 0x8` (`+0x4D47CED`) inside Castle Planner (`RefreshCastlePlanner`) when rebuilding or opening Castle Creator on a wall whose `smoothPoints` spline array is empty after a save reload.
 
 ### Previous (v1.0.10)

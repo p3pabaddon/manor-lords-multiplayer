@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.11",
-    "nativeVersion":  "0.8.2",
-    "traceVersion":  "v56_CastleWallCrashFix",
+    "version":  "1.0.12",
+    "nativeVersion":  "0.8.3",
+    "traceVersion":  "v57_CrashSteamSquadLateJoinFixes",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-24T20:07:55Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.11.zip",
-    "patchSha256":  "0ECAAC95C2BC40E28ACA635868BF9E4009AFE4319745B65CEEB48B439A5BF82F",
-    "patchBytes":  1011567,
+    "releasedAt":  "2026-11-25T00:41:28Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.12.zip",
+    "patchSha256":  "CCAB33DCAB76BC626099500365E1CF22D2C759AC8609A0394AEDBB4F891C69B1",
+    "patchBytes":  1021609,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "9BAFDB803E044D8EA012325A94273927B074BB0B72A2735EF1521E1DBFA0E384",
-    "fullBytes":  49967550,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.11",
-    "notes":  "- Fixed Castle Creator wall-rebuild CTD at ManorLords+0x4D47CED (reading 0x8 on empty wall spline, coopnative v0.8.2)\n- Includes Foreign Trader CTD fix (+0x4E01B0C), APawnCPP::extractSmoothSide guard, bld/econ/combat/squad sync loop fixes \u0026 save-transfer/UI security hardening"
+    "fullSha256":  "00025C959447B348D2C415B34C39304CB9CFB6F9F27B0DE688B8F85357218D39",
+    "fullBytes":  49977592,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.12",
+    "notes":  "- Fixed Client CTD at ManorLords+0x4C492A1 (ARegion::updateStorageCache with null Region, coopnative v0.8.3 + Lua Region init/repair)\n- Fixed Late-Join Heap Corruption CTD (0xC0000374 on OnlineAsyncTaskThreadSteam) by serializing 100% of Steamworks API calls via IAT hook on SteamAPI_RunCallbacks\n- Fixed [squad] lord=5 false mismatch while paused (explicit sqMode sync + pause-aware combat clock)\n- Fixed lobby falsely disbanding as host_left on Steam re-logon/outage while P2P stays alive (auto non-destructive lobby rejoin)\n- Fixed late-join player taking over an active AI lord\u0027s slot/region (spawns fresh lord in chosen region; crash-rejoin preserves original slot by SteamID)"
 }
