@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.12",
-    "nativeVersion":  "0.8.3",
-    "traceVersion":  "v57_CrashSteamSquadLateJoinFixes",
+    "version":  "1.0.13",
+    "nativeVersion":  "0.8.4",
+    "traceVersion":  "v58_CombatSpawnTradeCampFixes",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-25T00:41:28Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.12.zip",
-    "patchSha256":  "CCAB33DCAB76BC626099500365E1CF22D2C759AC8609A0394AEDBB4F891C69B1",
-    "patchBytes":  1021609,
+    "releasedAt":  "2026-11-25T10:14:39Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.13.zip",
+    "patchSha256":  "433720B576DB286721200F87B98D2E87C9E1F2A6427BD1DDE89545971B38DE10",
+    "patchBytes":  1027350,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "00025C959447B348D2C415B34C39304CB9CFB6F9F27B0DE688B8F85357218D39",
-    "fullBytes":  49977592,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.12",
-    "notes":  "- Fixed Client CTD at ManorLords+0x4C492A1 (ARegion::updateStorageCache with null Region, coopnative v0.8.3 + Lua Region init/repair)\n- Fixed Late-Join Heap Corruption CTD (0xC0000374 on OnlineAsyncTaskThreadSteam) by serializing 100% of Steamworks API calls via IAT hook on SteamAPI_RunCallbacks\n- Fixed [squad] lord=5 false mismatch while paused (explicit sqMode sync + pause-aware combat clock)\n- Fixed lobby falsely disbanding as host_left on Steam re-logon/outage while P2P stays alive (auto non-destructive lobby rejoin)\n- Fixed late-join player taking over an active AI lord\u0027s slot/region (spawns fresh lord in chosen region; crash-rejoin preserves original slot by SteamID)"
+    "fullSha256":  "B48720616461036B46916A9CC33C62BF25E1D3C8C48958EEDF565E0D07EEA293",
+    "fullBytes":  49983333,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.13",
+    "notes":  "- Fixed Host CTD at ManorLords+0x4DB81BF (ASMUnit::getLocationRef with invalid/non-canonical masterPtr, coopnative v0.8.4)\n- Fixed Client-raised Militia \u0026 Mercenary squads being mutually killed on both PCs within 1 minute (Host census[cN] \u0026 Client calive protection)\n- Fixed +343 extra-unit explosion (5x36=180 per AI Manor) caused by per-soldier spawnCompleteUnit calls\n- Blocked Non-Host from moving/dragging/rallying Host allied squads natively \u0026 in Lua (and fixed RequestDisbandSquadDetour isAI offset 0xB80 -\u003e 0x34D)\n- Fixed Foreign Merchants rubberbanding backwards / losing carts at Client Trading Posts + synced regional tradeRules, targetInventory, tradeRouteLevels \u0026 globalTradeAllowed in delta.lua\n- Fixed Bandit Camps respawning infinitely after Client looted them (Client-\u003eHost campCleared sync + 120s respawn guard)\n- Fixed Non-Host 3x3 rain sheet stuck in one area after Server Sync Save (WeatherMaster rebind + silencing non-local human pawn Niagara/Particle/Audio FX)\n- Fixed [squad] lord=5 per-lord mode, [combat] idle-vs-active pacing/melee drift, and [bld] bType=13 Marketplace + upgrade-chain sibling matching (30/97, 72/99, 80/68, 7/52, 21/114)"
 }

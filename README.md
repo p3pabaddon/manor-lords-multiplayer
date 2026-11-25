@@ -32,11 +32,18 @@
 
 ## Download
 
-- **Direct Download (v1.0.12):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.13):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.12
+### What's Fixed in v1.0.13
+- **Host Ambient-Sound CTD Fix (`coopnative v0.8.4`):** Added an AOB-verified native guard (`unitLocRefGuard` at `0x4DB81B0`) preventing `EXCEPTION_ACCESS_VIOLATION` (`+0x4DB81BF`) when `ASMUnit::getLocationRef` reads an invalid/non-canonical `masterPtr`.
+- **Client-Raised Militia & Mercenary Squad Protection:** Fixed Host `census[cN]` and Client `calive` mutually killing freshly raised Client soldiers within a minute (fixing permanent villager loss, greyed-out Militia redeploy, undeplyable Mercenaries draining Treasury, and shrinking squads while marching home).
+- **Phantom Extra-Unit Spike Fix:** Stopped per-soldier `spawnCompleteUnit` calls on squadded units (which spawned full 36-man squads per AI Manor retainer, causing `+343` extra units and sustained CPU load).
+- **Allied Squad Command Guard:** Blocked Non-Host players natively (and in Lua) from moving, dragging, or rallying Host's squads, and fixed `RequestDisbandSquadDetour`'s `isAI` offset (`0xB80` -> `0x34D`).
+- **Foreign Merchants, Trade Sync, Bandit Camps & Non-Host Weather:** Exempted `FreeMerchant`/`FreeLivestockMerchant` units from puppet locking (eliminating backward rubberbanding & lost carts), fixed `changeTradeRule` dropping rules, added owner-authoritative trade rule/target/route reconciliation in `delta.lua`, added Client->Host `world.campCleared` sync + 120s respawn guard to stop infinite Bandit Camp respawns, silenced non-local human pawn rain/FX + rebound `WeatherMaster` on Client, and resolved persistent `[squad] lord=5`, `[combat]` pacing, and `[bld]` Marketplace/upgrade-sibling mismatches.
+
+### Previous (v1.0.12)
 - **Client Storage-Cache CTD Fix (`coopnative v0.8.3`):** Added a signature-verified native guard (`storageCacheGuard` at `0x4C49280`) preventing `EXCEPTION_ACCESS_VIOLATION reading 0x1E0` (`+0x4C492A1`) in `ARegion::updateStorageCache` when `ASMUnit::performHit(12)` calls it with a null `unit->Region`, paired with Lua `Region` initialization/repair in `npc_mirror.lua`, a 60m civilian bind cap, and automatic release of persistently unbound non-combat extras.
 - **Late-Join Steam Thread Heap Corruption CTD Fix (`0xC0000374`):** Serialized 100% of in-process Steamworks API calls onto UE5's `OnlineAsyncTaskThreadSteam` via an atomic Delay-Import/Import IAT hook on `SteamAPI_RunCallbacks`, eliminating concurrent mutations of Steamworks' unsynchronized `m_mapCallResults` RB-tree; added `COOP_FORCE_EXTERNAL_STEAM_BRIDGE=1` / `forceExternalSteamBridge` config toggle for A/B testing.
 - **Paused Bandit Squad `[squad] lord=5` False Mismatch Fix:** Added an explicit `sqMode` (`"count"` / `"pos"`) field to `sync.hash` so Host and Client always hash `lord=5` in the exact same format, paired with a pause-aware combat clock and Client-side combat window aging.
