@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.14",
-    "nativeVersion":  "0.8.5",
-    "traceVersion":  "v59_SteamP2PLobbyKeepaliveReconnect",
+    "version":  "1.0.15",
+    "nativeVersion":  "0.8.6",
+    "traceVersion":  "v60_RehostSuppliesAndStorehouseFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-25T15:41:58Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.14.zip",
-    "patchSha256":  "D133CC46E6F2C21DF2309709B7C45B0E2704137737210A3A3A537DF24D9FD67D",
-    "patchBytes":  1032520,
+    "releasedAt":  "2026-11-25T18:23:11Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.15.zip",
+    "patchSha256":  "96FB188086064DEC90A1C681D62FF73FDCF22252C0E256244341BF0095A13D15",
+    "patchBytes":  1034115,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "F18CE2AF0D9F242DF8D3CCF9B11DD501A5F3E64FD6AE91C672A3E4AD433150EE",
-    "fullBytes":  49988503,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.14",
-    "notes":  "- Fixed players getting immediately kicked (~12s) right after joining a lobby when Steam P2P took longer to connect or dropped a relay route (lobby-relayed keepalive heartbeats + extended Steam connection headroom, coopnative v0.8.5)\n- Fixed Steam P2P channel stalls (eResult=35) by properly closing \u0026 auto-restarting failed sessions in both in-process coopnative.dll and standalone SteamBridge.exe\n- Fixed mid-game disconnects during brief network blips (relaxed peer/host timeouts to 30s/35s and removed aggressive 4.5s drop on transient relay hiccups)\n- Fixed mid-game ghost-peer desync after temporary timeouts: returning players now transparently re-attach to their existing peer slot with full two-way sync instead of turning into an unresponsive ghost peer\n- Suppressed trailing in-flight packets after clean player leave so phantom peers are no longer spawned"
+    "fullSha256":  "29870372F182DBF5F4EB6D184CDF7DA2DAACB4711BD0EE12E86AB12D2BA2AE1F",
+    "fullBytes":  49990098,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.15",
+    "notes":  "- Fixed starting resources and lord trait supplies being re-added to players\u0027 stockpiles every time a saved game is rehosted\n- Fixed guest villagers (such as traders and unassigned workers) getting stuck in the Storehouse drop-off animation when handling Shields and early-game militia weapons\n- Kept freshly rallied militia, retinue, mercenaries, and battles fully synchronized while letting unrallied villagers work and haul equipment normally on guest PCs"
 }

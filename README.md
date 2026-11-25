@@ -32,11 +32,15 @@
 
 ## Download
 
-- **Direct Download (v1.0.14):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.15):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.14
+### What's Fixed in v1.0.15
+- **Rehost Starting Resource Duplication Fix:** Fixed an issue where rehosting an existing co-op save re-applied every player's starting lord trait resources and treasury/wealth bonuses to their Stockpile every time the save was loaded. Starting packs are now granted only once on fresh campaigns (or once for a brand-new player joining a saved campaign for the very first time).
+- **Guest Storehouse Shield Drop-Off Animation Freeze Fix (`coopnative v0.8.6`):** Fixed an issue where guest villagers (such as traders and unassigned workers) assigned to an unrallied militia unit were mistakenly locked by the client combat sync, blocking task completion and freezing them inside the Storehouse while dropping off Shields or handling early-game weapons. Unrallied militia villagers and soldiers hauling/dropping off equipment at Storehouses now complete their tasks and animations normally on guest PCs while rallied armies and combat stay fully Host-authoritative.
+
+### Previous (v1.0.14)
 - **Instant Lobby Kick Fix (`coopnative v0.8.5`):** Added lobby-relayed reliable keepalive heartbeats and lobby control fallback (`HANDSHAKE`, `LOBBY_STATE`, `CLIENT_READY`, `START_MATCH`, `PING`/`PONG`), plus raised Steam SDR `TimeoutInitial` (`10s -> 25s`) and `TimeoutConnected` (`20s -> 30s`), preventing clients from being kicked ~12s after joining a lobby when Steam P2P takes longer to connect or drops a relay route.
 - **Steam P2P Channel-1 Recovery (`eResult=35`):** Properly closes and re-accepts failed Valve SDR sessions on `session_failed` and enables `AutoRestartBrokenSession` on both reliable and unreliable sends in `coopnative.dll` and `SteamBridge.exe`.
 - **Mid-Game Disconnect & Transparent Re-Attach Fix:** Raised default peer/host silence timeouts to `30s`/`35s` (and `45s` while waiting in a live Steam lobby), removed the aggressive `4.5s` drop after transient `session_failed`, and added seamless 120s peer re-attach so returning mid-match traffic restores full bidirectional sync on the original peer slot instead of creating a dead ghost peer (`peers=0`).
