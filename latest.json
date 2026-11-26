@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.17",
+    "version":  "1.0.18",
     "nativeVersion":  "0.8.7",
     "traceVersion":  "v61_MilitiaRaidersRainLobbyFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-26T15:03:36Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.17.zip",
-    "patchSha256":  "E10F31E4F9001CFFAFF0EA6FC1DE6B30F47ECFFC4D713D75458B93F44494A42F",
-    "patchBytes":  1046571,
+    "releasedAt":  "2026-11-26T15:21:02Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.18.zip",
+    "patchSha256":  "BCF14FCE27F57784EA175007F51DAB86D9CF06A509CF48AF8A07B61B655508DD",
+    "patchBytes":  1046883,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "BD070F345C1689579684239E229EFA5671C800F1A88DD09BACB750A2C03FD651",
-    "fullBytes":  50002554,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.17",
-    "notes":  "- Hotfix for v1.0.16 Save Sync failure (\u0027Failed to receive save from host\u0027): fixed SAVE_SYNC_COMPLETE racing ahead of save chunks over Steam Lobby Chat (SHA-256 mismatch) and made the Save Sync receiver out-of-order \u0026 duplicate-proof\n- Fixed stale-SDR watchdog prematurely resetting fresh Steam P2P sessions right after joining or mid-transfer\n- Includes all v1.0.16 fixes (Client militia rally/disband/remove, multi-lord raiders \u0026 alerts, Client rain, overlapping double music, UI hover recovery, 1:1 lobby map, Storehouse livestock guard, Corpse Pit \u0026 Dyer\u0027s Workshop sync)"
+    "fullSha256":  "B5A34503695B6B8A824E22C15BED77D700F74BCDED032EE4C94299CB3F485351",
+    "fullBytes":  50002866,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.18",
+    "notes":  "- Fixed game language resetting to English when joining or creating a Multiplayer lobby (corrected all Manor Lords locale codes: tr_TR, ru_RU, de_DE, zh_CN, fr_FR, pl_PL, cs_CZ, en_US, es_ES, pt_BR; and stopped default mod config from overwriting your in-game language)\n- Includes v1.0.17 SaveSync \u0026 Steam P2P fixes and all v1.0.16 gameplay fixes"
 }
