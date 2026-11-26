@@ -32,11 +32,18 @@
 
 ## Download
 
-- **Direct Download (v1.0.19):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.20):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.19
+### What's Fixed in v1.0.20
+- **Multiplayer Button & F10 Portal Reliability Fix:** `1_INSTALL.bat` and `4_CHECK_AND_UPDATE.bat` now deploy a **self-contained runtime** (`daemon/`, `ui/`, `bin/`, `runtime/node.exe`) directly inside `ue4ss\Mods\ManorLordsCoop\`, so launching from Steam uses pure-ASCII relative paths and **never breaks** if you move, rename, or delete your downloaded ZIP folder or extract to Turkish/Russian/non-ASCII folders on `D:\` / `E:\` drives. Also fixed a Node.js v24 `realpathSync` bug that caused `coop_daemon.mjs` to exit silently on symlink/OneDrive/junction paths, cleared stale `shuttingDown` flags before spawning `CoopOverlay.exe`, and added a clear Windows popup alert if the portal ever fails to start.
+- **Client Militia Disband Sync & Post-F5 Fix (`coopnative v0.8.9`):** Fixed Client Militia disbands not syncing to Host and getting blocked after a Host F5 resync. `coopnative v0.8.9` now repairs Militia ownership using `FSquad::originRegion (+0x1F8)` (not just `currentRegion`), captures native C++ UI disband calls (`SetSkillActive -> RequestDisbandSquad`) directly into `coop_disband_poll()`, adds a Lua `unitCount -> 0` fallback, and allows Host to accept disbands for Client-owned Militia regions.
+- **Host 3×3 Rain Sheet / Sky Cutout Fix (`coopnative v0.8.9`):** Added an AOB-verified native guard (`cameraClearanceGuard` at `0x4B747C0`) blocking silenced secondary human pawns from overwriting Host's global `buildingMPC["camera_clearance"]` every frame, paired with an outside-Paper-Map `playerRef` guard.
+- **Client Burgage Homes Disappearing on Server Sync Fix:** Fixed residential plot projection aborting on a single SEH-faulting `slicingAngle` and discarding valid outer Burgage polygons when sub-plot replay returned `0/N`.
+- **Client Combat-Tick Stability Fix:** Forward-declared `read_lua_combat` in `npc_mirror.lua`, eliminating silent nil-global errors during active combat ticks.
+
+### Previous (v1.0.19)
 - **Post-Resync Client Desktop Crash Fix (`coopnative v0.8.8`):** Added an AOB-verified native null-pointer shield (`removeProblemGuard` at `0x4C691E0`) fixing a crash (`EXCEPTION_ACCESS_VIOLATION` reading `0xD88` at `+0x4C691EA`) that could close the Client's game seconds after a periodic World Resync reload when assigning an ox guide (`newTask_setGuideTask`) to an ox whose `homeRegion` was null. Protects all 65 callers of `ARegion::removeProblem` across the game binary.
 - **Diagnostic Trace Version Tag:** Updated the sync log version label to `v62_OxGuideCrashGuard` so exported diagnostic logs clearly show the exact active release.
 

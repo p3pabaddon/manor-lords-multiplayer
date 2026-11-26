@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.19",
-    "nativeVersion":  "0.8.8",
-    "traceVersion":  "v62_OxGuideCrashGuard",
+    "version":  "1.0.20",
+    "nativeVersion":  "0.8.9",
+    "traceVersion":  "v63_MilitiaRainHomePortalFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-26T19:35:06Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.19.zip",
-    "patchSha256":  "032E4D704BAB7D34C976705CAAC1201C5EA30E71429356B8C92E64723A9C1D5E",
-    "patchBytes":  1047374,
+    "releasedAt":  "2026-11-26T21:45:37Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.20.zip",
+    "patchSha256":  "1481117DFBE92C72E12692843F27123D4D8177F42DD756E86B4DC663DCF39E08",
+    "patchBytes":  1051948,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "49A7F0ABC37B3827A66A352BDE66BA7F587622E0D1E3B9EC70CB9C7A825AB9CE",
-    "fullBytes":  50003357,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.19",
-    "notes":  "- Fixed Client desktop crash (EXCEPTION_ACCESS_VIOLATION reading 0xD88 at +0x4C691EA) that could occur seconds after a periodic World Resync reload when assigning an ox guide to an ox with a null home region (added AOB-verified native removeProblemGuard in coopnative v0.8.8 protecting all 65 callers)\n- Updated sync trace version tag to v62_OxGuideCrashGuard so diagnostic logs clearly reflect the active build\n- Includes v1.0.18 Turkish \u0026 multi-language fix, v1.0.17 SaveSync \u0026 Steam P2P fixes, and all v1.0.16 gameplay fixes"
+    "fullSha256":  "6E2A6B1A2FEA94B0F1C46BFD74E01C8963F4E8CBA7D86FA200145B986A9147AB",
+    "fullBytes":  50007931,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.20",
+    "notes":  "- Fixed Multiplayer button \u0026 F10 doing nothing after moving/renaming the mod folder, using Turkish/Russian/non-ASCII folders on D:/E: drives, or symlink/OneDrive paths (self-contained runtime deployed into ManorLordsCoop, realpathSync daemon entry guard, stale hud_state startup fix, and clear alert dialog if anything is missing)\n- Fixed Client Militia disband not syncing to Host and getting blocked after a Host F5 resync (native originRegion +0x1F8 repair, native UI disband capture, and unitCount fallback in coopnative v0.8.9)\n- Fixed Host 3x3 rain sheet / sky cutout when Client\u0027s human pawn ticked after Host (native cameraClearanceGuard on 0x4B747C0 + outside-map playerRef guard)\n- Fixed Client Burgage homes disappearing after a periodic Server Sync when residential projection hit a single slicingAngle SEH fault (skip faulting pair, start subPlot replay at slicingAngle=0, preserve valid outer polygon fallback)\n- Fixed hidden Client combat-tick error (forward-declared read_lua_combat in npc_mirror.lua)"
 }
