@@ -32,11 +32,19 @@
 
 ## Download
 
-- **Direct Download (v1.0.15):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.16):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.15
+### What's Fixed in v1.0.16
+- **Client Militia Rally, Disband & Removal Fix (`coopnative v0.8.7`):** Fixed Client players being unable to rally Militia, freshly rallied Militia immediately disbanding on Client, and deleted/disbanded Client Militia staying alive as ghost squads on Host (which previously returned on F5).
+- **Brigands & Raiders Target All Human Lords:** Fixed Brigands/Raiders only targeting the Host; raiders now properly target all settled human lords and display a clear shared alert naming which region and lord is being raided (in all 8 supported languages).
+- **Client Rain, Overlapping Double Music & Building Selection Recovery:** Fixed Client rain visuals sticking to Host, permanently stopped the hidden duplicate music track from playing out of sync, and added automatic hover/cursor/UI recovery so Clients don't lose building highlighting or map selection.
+- **Lobby Map Crop & Spawn Alignment Fix:** Fixed the lobby map preview cropping top/bottom edges so all spawn shields line up cleanly with the full parchment map.
+- **500+ ms Lobby Ping & Stuck Match Start Fix:** Cleaned up stale connections when recreating lobbies, stopped lobby keepalives from inflating ping to 500+ ms, prevented bulk save transfers from flooding Steam lobby chat on SDR resets, deduplicated repeated handshake ACKs, and added automatic match-start retry & save-sync recovery.
+- **Storehouse Livestock & Building Sync Fixes:** Stopped Cows, Chickens, other live animals, and special non-stock items (such as Church graves/corpses) from being placed into Storehouses or Granaries, and fixed **Corpse Pit** and **Dyer's Workshop** construction sync for Client players.
+
+### Previous (v1.0.15)
 - **Rehost Starting Resource Duplication Fix:** Fixed an issue where rehosting an existing co-op save re-applied every player's starting lord trait resources and treasury/wealth bonuses to their Stockpile every time the save was loaded. Starting packs are now granted only once on fresh campaigns (or once for a brand-new player joining a saved campaign for the very first time).
 - **Guest Storehouse Shield Drop-Off Animation Freeze Fix (`coopnative v0.8.6`):** Fixed an issue where guest villagers (such as traders and unassigned workers) assigned to an unrallied militia unit were mistakenly locked by the client combat sync, blocking task completion and freezing them inside the Storehouse while dropping off Shields or handling early-game weapons. Unrallied militia villagers and soldiers hauling/dropping off equipment at Storehouses now complete their tasks and animations normally on guest PCs while rallied armies and combat stay fully Host-authoritative.
 
