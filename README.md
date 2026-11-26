@@ -32,11 +32,15 @@
 
 ## Download
 
-- **Direct Download (v1.0.18):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.19):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.18
+### What's Fixed in v1.0.19
+- **Post-Resync Client Desktop Crash Fix (`coopnative v0.8.8`):** Added an AOB-verified native null-pointer shield (`removeProblemGuard` at `0x4C691E0`) fixing a crash (`EXCEPTION_ACCESS_VIOLATION` reading `0xD88` at `+0x4C691EA`) that could close the Client's game seconds after a periodic World Resync reload when assigning an ox guide (`newTask_setGuideTask`) to an ox whose `homeRegion` was null. Protects all 65 callers of `ARegion::removeProblem` across the game binary.
+- **Diagnostic Trace Version Tag:** Updated the sync log version label to `v62_OxGuideCrashGuard` so exported diagnostic logs clearly show the exact active release.
+
+### Previous (v1.0.18)
 - **Turkish & Multi-Language Reset Fix:** Fixed Manor Lords automatically resetting back to English when joining or creating a Multiplayer room. Updated all `SetLanguage` locale mappings to match the exact game codes (`tr_TR`, `ru_RU`, `de_DE`, `zh_CN`, `fr_FR`, `pl_PL`, `cs_CZ`, `en_US`, `es_ES`, `pt_BR`) and prevented the mod's default English setting from overwriting your existing in-game language when entering a lobby.
 
 ### Previous (v1.0.17 Hotfix)

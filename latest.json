@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.18",
-    "nativeVersion":  "0.8.7",
-    "traceVersion":  "v61_MilitiaRaidersRainLobbyFix",
+    "version":  "1.0.19",
+    "nativeVersion":  "0.8.8",
+    "traceVersion":  "v62_OxGuideCrashGuard",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-26T15:21:02Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.18.zip",
-    "patchSha256":  "BCF14FCE27F57784EA175007F51DAB86D9CF06A509CF48AF8A07B61B655508DD",
-    "patchBytes":  1046883,
+    "releasedAt":  "2026-11-26T19:35:06Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.19.zip",
+    "patchSha256":  "032E4D704BAB7D34C976705CAAC1201C5EA30E71429356B8C92E64723A9C1D5E",
+    "patchBytes":  1047374,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "B5A34503695B6B8A824E22C15BED77D700F74BCDED032EE4C94299CB3F485351",
-    "fullBytes":  50002866,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.18",
-    "notes":  "- Fixed game language resetting to English when joining or creating a Multiplayer lobby (corrected all Manor Lords locale codes: tr_TR, ru_RU, de_DE, zh_CN, fr_FR, pl_PL, cs_CZ, en_US, es_ES, pt_BR; and stopped default mod config from overwriting your in-game language)\n- Includes v1.0.17 SaveSync \u0026 Steam P2P fixes and all v1.0.16 gameplay fixes"
+    "fullSha256":  "49A7F0ABC37B3827A66A352BDE66BA7F587622E0D1E3B9EC70CB9C7A825AB9CE",
+    "fullBytes":  50003357,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.19",
+    "notes":  "- Fixed Client desktop crash (EXCEPTION_ACCESS_VIOLATION reading 0xD88 at +0x4C691EA) that could occur seconds after a periodic World Resync reload when assigning an ox guide to an ox with a null home region (added AOB-verified native removeProblemGuard in coopnative v0.8.8 protecting all 65 callers)\n- Updated sync trace version tag to v62_OxGuideCrashGuard so diagnostic logs clearly reflect the active build\n- Includes v1.0.18 Turkish \u0026 multi-language fix, v1.0.17 SaveSync \u0026 Steam P2P fixes, and all v1.0.16 gameplay fixes"
 }
