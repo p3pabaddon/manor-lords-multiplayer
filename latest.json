@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.20",
-    "nativeVersion":  "0.8.9",
-    "traceVersion":  "v63_MilitiaRainHomePortalFix",
+    "version":  "1.0.21",
+    "nativeVersion":  "0.8.10",
+    "traceVersion":  "v64_RetinueAndCorpseSaveFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-26T21:45:37Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.20.zip",
-    "patchSha256":  "1481117DFBE92C72E12692843F27123D4D8177F42DD756E86B4DC663DCF39E08",
-    "patchBytes":  1051948,
+    "releasedAt":  "2026-11-26T22:21:37Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.21.zip",
+    "patchSha256":  "487A04EA65701B7FAC641D7F4C69138E62972E206FA85C9524F77A142BE93AA1",
+    "patchBytes":  1289944,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "6E2A6B1A2FEA94B0F1C46BFD74E01C8963F4E8CBA7D86FA200145B986A9147AB",
-    "fullBytes":  50007931,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.20",
-    "notes":  "- Fixed Multiplayer button \u0026 F10 doing nothing after moving/renaming the mod folder, using Turkish/Russian/non-ASCII folders on D:/E: drives, or symlink/OneDrive paths (self-contained runtime deployed into ManorLordsCoop, realpathSync daemon entry guard, stale hud_state startup fix, and clear alert dialog if anything is missing)\n- Fixed Client Militia disband not syncing to Host and getting blocked after a Host F5 resync (native originRegion +0x1F8 repair, native UI disband capture, and unitCount fallback in coopnative v0.8.9)\n- Fixed Host 3x3 rain sheet / sky cutout when Client\u0027s human pawn ticked after Host (native cameraClearanceGuard on 0x4B747C0 + outside-map playerRef guard)\n- Fixed Client Burgage homes disappearing after a periodic Server Sync when residential projection hit a single slicingAngle SEH fault (skip faulting pair, start subPlot replay at slicingAngle=0, preserve valid outer polygon fallback)\n- Fixed hidden Client combat-tick error (forward-declared read_lua_combat in npc_mirror.lua)"
+    "fullSha256":  "E84351BD817BF3E91C8A85E97D82E4D8E1BE1F335D09975D4DB1DB9619D57778",
+    "fullBytes":  50245927,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.21",
+    "notes":  "- Fixed simultaneous Host + Client desktop crash when villagers bury battle corpses during an autosave or SaveSync (AOB-verified native saveUnitsGuard at 0x4B1F370 in coopnative v0.8.10 sanitizing stale corpse/actor/unit references before requestSaveFile)\n- Fixed Client unable to rally or command their 24-man Retinue squad after a save reload (extended native + Lua squad ownership repair, foreign-squad filter, and disband sync to cover both Militia [1] and Retinue [3] via originRegion/currentRegion/ARegion::retinueSquadID across all human lords on both Host and Client)\n- Includes all v1.0.20 fixes: self-contained Multiplayer button \u0026 F10 portal runtime, Client Militia disband sync, Host 3x3 rain sheet fix, Burgage Server-Sync preservation, and combat-tick stability"
 }

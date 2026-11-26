@@ -32,11 +32,15 @@
 
 ## Download
 
-- **Direct Download (v1.0.20):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.21):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.20
+### What's Fixed in v1.0.21
+- **Simultaneous Host + Client Corpse-Burial Crash Fix (`coopnative v0.8.10`):** Added an AOB-verified native guard (`saveUnitsGuard` at `0x4B1F370`) that sanitizes dangling/destroyed corpse `AActor*` references (`ASMUnit + 0xCE0` and all sibling actor/task slots) right before `requestSaveFile` serializes units — preventing the simultaneous Host + Client desktop crash (`EXCEPTION_ACCESS_VIOLATION` at `+0x4B20103`) triggered when villagers finish burying battle corpses right before an autosave or SaveSync.
+- **Client 24-Man Retinue Rally & Command Fix (`coopnative v0.8.10`):** Extended native + Lua squad ownership repair, foreign-squad protection, and disband sync to cover **both Militia (`1`) and Retinue (`3`)** using `originRegion`, `currentRegion`, and `ARegion::retinueSquadID (+0x508)` across **all human lords** on both Host and Client — fixing Clients being unable to assemble or move their Manor Retinue after loading a co-op save.
+
+### Previous (v1.0.20)
 - **Multiplayer Button & F10 Portal Reliability Fix:** `1_INSTALL.bat` and `4_CHECK_AND_UPDATE.bat` now deploy a **self-contained runtime** (`daemon/`, `ui/`, `bin/`, `runtime/node.exe`) directly inside `ue4ss\Mods\ManorLordsCoop\`, so launching from Steam uses pure-ASCII relative paths and **never breaks** if you move, rename, or delete your downloaded ZIP folder or extract to Turkish/Russian/non-ASCII folders on `D:\` / `E:\` drives. Also fixed a Node.js v24 `realpathSync` bug that caused `coop_daemon.mjs` to exit silently on symlink/OneDrive/junction paths, cleared stale `shuttingDown` flags before spawning `CoopOverlay.exe`, and added a clear Windows popup alert if the portal ever fails to start.
 - **Client Militia Disband Sync & Post-F5 Fix (`coopnative v0.8.9`):** Fixed Client Militia disbands not syncing to Host and getting blocked after a Host F5 resync. `coopnative v0.8.9` now repairs Militia ownership using `FSquad::originRegion (+0x1F8)` (not just `currentRegion`), captures native C++ UI disband calls (`SetSkillActive -> RequestDisbandSquad`) directly into `coop_disband_poll()`, adds a Lua `unitCount -> 0` fallback, and allows Host to accept disbands for Client-owned Militia regions.
 - **Host 3×3 Rain Sheet / Sky Cutout Fix (`coopnative v0.8.9`):** Added an AOB-verified native guard (`cameraClearanceGuard` at `0x4B747C0`) blocking silenced secondary human pawns from overwriting Host's global `buildingMPC["camera_clearance"]` every frame, paired with an outside-Paper-Map `playerRef` guard.
