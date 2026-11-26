@@ -32,11 +32,15 @@
 
 ## Download
 
-- **Direct Download (v1.0.16):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
+- **Direct Download (v1.0.17):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.7 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.16
+### What's Fixed in v1.0.17 (Hotfix)
+- **Save Sync Failure Hotfix (`"Failed to receive save from host"`):** Fixed a regression in `v1.0.16` where `SAVE_SYNC_COMPLETE` traveled via Steam Lobby Chat ahead of the Steam P2P save chunks, causing instant SHA-256 mismatches during match start and join-in-progress. Save transfers now travel strictly in order on the same reliable P2P lane, and the client receiver is now fully resilient to out-of-order completion packets and duplicate `SAVE_SYNC_BEGIN` headers.
+- **Premature P2P Reset Fix:** Fixed the stale-connection watchdog resetting fresh Steam P2P sessions right after joining or while a save transfer / live match was active.
+
+### Previous (v1.0.16)
 - **Client Militia Rally, Disband & Removal Fix (`coopnative v0.8.7`):** Fixed Client players being unable to rally Militia, freshly rallied Militia immediately disbanding on Client, and deleted/disbanded Client Militia staying alive as ghost squads on Host (which previously returned on F5).
 - **Brigands & Raiders Target All Human Lords:** Fixed Brigands/Raiders only targeting the Host; raiders now properly target all settled human lords and display a clear shared alert naming which region and lord is being raided (in all 8 supported languages).
 - **Client Rain, Overlapping Double Music & Building Selection Recovery:** Fixed Client rain visuals sticking to Host, permanently stopped the hidden duplicate music track from playing out of sync, and added automatic hover/cursor/UI recovery so Clients don't lose building highlighting or map selection.

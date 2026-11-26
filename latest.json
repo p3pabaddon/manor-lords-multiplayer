@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.16",
+    "version":  "1.0.17",
     "nativeVersion":  "0.8.7",
     "traceVersion":  "v61_MilitiaRaidersRainLobbyFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-26T10:41:23Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.16.zip",
-    "patchSha256":  "C78B68C625529BB245584B4E694EE2BF4E51B66E28D0C959E3EBCF73B477D23E",
-    "patchBytes":  1045443,
+    "releasedAt":  "2026-11-26T15:03:36Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.17.zip",
+    "patchSha256":  "E10F31E4F9001CFFAFF0EA6FC1DE6B30F47ECFFC4D713D75458B93F44494A42F",
+    "patchBytes":  1046571,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "AFAD5AB70D1BCEBD452FB3DEAA3A50759374B21D9AEBA545C8B10C8A4BEBB917",
-    "fullBytes":  50001426,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.16",
-    "notes":  "- Fixed Client players being unable to rally Militia, freshly rallied Militia immediately disbanding, and removed Client Militia staying behind as ghost units on Host\n- Fixed Brigands and Raiders only targeting the Host; raiders now target all settled human lords and show a clear shared alert naming which region and lord is under attack\n- Fixed Client rain animation glitch, overlapping double soundtrack music, and loss of building highlight/selection on Client\n- Fixed 500+ ms lobby ping when recreating a lobby on the same map, Steam lobby chat flooding during save sync, and Client getting stuck in the lobby when the Host starts the match\n- Fixed the lobby map cropping the top/bottom edges and offsetting spawn pins\n- Fixed Cows, Chickens, and other livestock/non-stock items being placed inside Storehouses, and fixed Corpse Pit & Dyer's Workshop building sync for Guests"
+    "fullSha256":  "BD070F345C1689579684239E229EFA5671C800F1A88DD09BACB750A2C03FD651",
+    "fullBytes":  50002554,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.17",
+    "notes":  "- Hotfix for v1.0.16 Save Sync failure (\u0027Failed to receive save from host\u0027): fixed SAVE_SYNC_COMPLETE racing ahead of save chunks over Steam Lobby Chat (SHA-256 mismatch) and made the Save Sync receiver out-of-order \u0026 duplicate-proof\n- Fixed stale-SDR watchdog prematurely resetting fresh Steam P2P sessions right after joining or mid-transfer\n- Includes all v1.0.16 fixes (Client militia rally/disband/remove, multi-lord raiders \u0026 alerts, Client rain, overlapping double music, UI hover recovery, 1:1 lobby map, Storehouse livestock guard, Corpse Pit \u0026 Dyer\u0027s Workshop sync)"
 }
