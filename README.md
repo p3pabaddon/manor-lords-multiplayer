@@ -32,11 +32,14 @@
 
 ## Download
 
-- **Direct Download (v1.0.22):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
+- **Direct Download (v1.0.23):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1.2 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.22
+### What's Fixed in v1.0.23
+- **Windows 11 Smart App Control / Overlay Block Resilience:** Fixed `coop_daemon.mjs` crashing with an unhandled `spawn` error when Windows 11 Smart App Control or antivirus blocks unsigned `CoopOverlay.exe` (or `SteamBridge.exe`). The daemon now catches policy-block errors cleanly and **automatically falls back to a Microsoft-signed Edge (`--app`) / system browser portal window** without repeating Windows Security popups.
+
+### Previous (v1.0.22)
 - **Saved-Game Reload Wrong Region / Settlement Fix:** Fixed an issue where loading an existing multi-human co-op save left the Host controlling another human lord's camera, HUD, and settlement (UE5 hands `PlayerController`/`engine.playerRef` to the last spawned human pawn when loading an all-human save). The Host setup path now always rebinds `PlayerController`, `SetViewTargetWithBlend`, `engine.playerRef`, HUD, and selected region back to the Host's own lord pawn (`slot 0` or saved slot) — even when launching solo before teammates join — and cleanly silences other human pawns.
 - **Saved-Game Lobby Auto-Region Selection & Sidecar Auto-Heal:** Fixed `.coop.json` save metadata overwriting `profile.spawnRegionId` with UE5's internal short tag instead of the map catalog region ID (which caused the Saved Game wizard to silently reset your region to the first region on the map). Both daemon and UI now store and resolve canonical map region IDs alongside raw UE5 tags, **auto-heal existing `.coop.json` saves on read without re-saving**, resolve local sidecars for Steam Cloud `.sav` files, preserve absent teammates across manual saves, rebuild player save-locks when switching saves inside an active lobby, and accurately render reserved teammate pins on the map.
 - **AI Town Hijack Guard on Saved Games:** Fixed `pick_saved_lord_candidate` falling back to a settled AI opponent's pawn/region/buildings when `.coop.json` metadata was missing; returning players now match unclaimed human slots by name or normalized region first, and unmatched/new players cleanly spawn a fresh lord in an open region instead of taking over an AI lord's town.
@@ -119,7 +122,7 @@
 > - **Do NOT install via Vortex.** Vortex treats the bundled `UE4SS v4.0.0` as a standalone MLUE4SS replacement and skips the installer.
 > - **If you previously installed `MLUE4SS` (v3.0.1) or other UE4SS/PAK mods via Vortex, disable/remove them in Vortex first** — older `UE4SS v3.0.1` and outdated third-party mods crash Manor Lords `0.8.117` when starting a match.
 > - Running `1_INSTALL.bat` automatically backs up conflicting legacy UE4SS files (`_ue4ss_vortex_backup\`), installs the required **UE4SS v4.0.0 (UE 5.5)**, and warns if other third-party mods remain installed.
-> - **Requires Steam build `0.8.117`** (Steam beta branch).
+> - **Requires latest Steam build `0.8.117`.**
 
 ### Windows
 1. Download the official release archive from the **official GitHub** or **official Nexus Mods** page (**Manual Download**).

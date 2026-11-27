@@ -1,15 +1,15 @@
 {
-    "version": "1.0.22",
-    "nativeVersion": "0.8.10",
-    "traceVersion": "v65_SavedGameRehostFix",
-    "minBaseVersion": "1.0.8",
-    "releasedAt": "2026-11-27T12:23:54Z",
-    "patchUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.22.zip",
-    "patchSha256": "AAD491DEF6F25A3153D460AACD7AE8E6E4B24C3822385D269A1CC80C37DAA53A",
-    "patchBytes": 1293002,
-    "fullUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256": "EBB1BCB40E2AA1BBF559B7FAB71C1CBD94E5AFBC31A2C08BA5A5DB923BAE1DF5",
-    "fullBytes": 50248985,
-    "releaseUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.22",
-    "notes": "- Fixed Host being assigned another player's or AI lord's region and settlement when loading an existing co-op save (Host now always re-possesses their own lord pawn, camera, HUD, and region on multi-human saves, even when launching solo or before teammates join, and silences other human pawns cleanly)\n- Fixed Saved Game lobby wizard and Active Lobby not auto-selecting your original region (sidecar .coop.json now preserves canonical map catalog region IDs alongside UE5 region tags, auto-heals existing .coop.json saves on read with no re-save needed, resolves local sidecars for Steam Cloud saves, and displays reserved teammate pins accurately)\n- Fixed unmatched players on saved games without a sidecar hijacking a settled AI opponent's town/buildings (pick_saved_lord_candidate now matches returning players on human slots by name/region first and spawns a fresh lord in an open region instead of taking over an AI lord)\n- Includes all v1.0.21 fixes: simultaneous Host+Client corpse-burial save crash guard (coopnative v0.8.10), Client 24-man Retinue rally/command fix, and self-contained Multiplayer portal runtime"
+    "version":  "1.0.23",
+    "nativeVersion":  "0.8.10",
+    "traceVersion":  "v65_SavedGameRehostFix",
+    "minBaseVersion":  "1.0.8",
+    "releasedAt":  "2026-11-27T14:55:56Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.23.zip",
+    "patchSha256":  "8C689D4DF47C0D781E1D4F74630F13D85997F40E6B0E01390BFBE4BAB6BA4F63",
+    "patchBytes":  1293577,
+    "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
+    "fullSha256":  "5C68191966C6AC8341FCB12D7C22919A65963B0F770B759577108023D27C2698",
+    "fullBytes":  50249560,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.23",
+    "notes":  "- Fixed Co-op background service crashing on startup when Windows 11 Smart App Control or antivirus blocks CoopOverlay.exe or SteamBridge.exe (added async ChildProcess error/early-exit handlers across coop_daemon.mjs, steam_transport.mjs, and ui_server.mjs)\n- Added automatic Microsoft-signed Edge (--app) / system browser fallback whenever CoopOverlay.exe is blocked by OS security policy, stopping repeated Windows Security popups on F10/Multiplayer clicks\n- Includes all v1.0.22 fixes: saved-game reload Host pawn/camera/HUD/region rebind, saved-game lobby auto-region selection \u0026 legacy .coop.json auto-heal, Steam Cloud sidecar fallback, and AI town hijack guard"
 }
