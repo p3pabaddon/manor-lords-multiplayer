@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.21",
-    "nativeVersion":  "0.8.10",
-    "traceVersion":  "v64_RetinueAndCorpseSaveFix",
-    "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-26T22:21:37Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.21.zip",
-    "patchSha256":  "487A04EA65701B7FAC641D7F4C69138E62972E206FA85C9524F77A142BE93AA1",
-    "patchBytes":  1289944,
-    "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "E84351BD817BF3E91C8A85E97D82E4D8E1BE1F335D09975D4DB1DB9619D57778",
-    "fullBytes":  50245927,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.21",
-    "notes":  "- Fixed simultaneous Host + Client desktop crash when villagers bury battle corpses during an autosave or SaveSync (AOB-verified native saveUnitsGuard at 0x4B1F370 in coopnative v0.8.10 sanitizing stale corpse/actor/unit references before requestSaveFile)\n- Fixed Client unable to rally or command their 24-man Retinue squad after a save reload (extended native + Lua squad ownership repair, foreign-squad filter, and disband sync to cover both Militia [1] and Retinue [3] via originRegion/currentRegion/ARegion::retinueSquadID across all human lords on both Host and Client)\n- Includes all v1.0.20 fixes: self-contained Multiplayer button \u0026 F10 portal runtime, Client Militia disband sync, Host 3x3 rain sheet fix, Burgage Server-Sync preservation, and combat-tick stability"
+    "version": "1.0.22",
+    "nativeVersion": "0.8.10",
+    "traceVersion": "v65_SavedGameRehostFix",
+    "minBaseVersion": "1.0.8",
+    "releasedAt": "2026-11-27T12:23:54Z",
+    "patchUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.22.zip",
+    "patchSha256": "AAD491DEF6F25A3153D460AACD7AE8E6E4B24C3822385D269A1CC80C37DAA53A",
+    "patchBytes": 1293002,
+    "fullUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
+    "fullSha256": "EBB1BCB40E2AA1BBF559B7FAB71C1CBD94E5AFBC31A2C08BA5A5DB923BAE1DF5",
+    "fullBytes": 50248985,
+    "releaseUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.22",
+    "notes": "- Fixed Host being assigned another player's or AI lord's region and settlement when loading an existing co-op save (Host now always re-possesses their own lord pawn, camera, HUD, and region on multi-human saves, even when launching solo or before teammates join, and silences other human pawns cleanly)\n- Fixed Saved Game lobby wizard and Active Lobby not auto-selecting your original region (sidecar .coop.json now preserves canonical map catalog region IDs alongside UE5 region tags, auto-heals existing .coop.json saves on read with no re-save needed, resolves local sidecars for Steam Cloud saves, and displays reserved teammate pins accurately)\n- Fixed unmatched players on saved games without a sidecar hijacking a settled AI opponent's town/buildings (pick_saved_lord_candidate now matches returning players on human slots by name/region first and spawns a fresh lord in an open region instead of taking over an AI lord)\n- Includes all v1.0.21 fixes: simultaneous Host+Client corpse-burial save crash guard (coopnative v0.8.10), Client 24-man Retinue rally/command fix, and self-contained Multiplayer portal runtime"
 }

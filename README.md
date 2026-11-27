@@ -32,11 +32,16 @@
 
 ## Download
 
-- **Direct Download (v1.0.21):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
-- **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1 MB delta patch automatically.
+- **Direct Download (v1.0.22):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
+- **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1.2 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.21
+### What's Fixed in v1.0.22
+- **Saved-Game Reload Wrong Region / Settlement Fix:** Fixed an issue where loading an existing multi-human co-op save left the Host controlling another human lord's camera, HUD, and settlement (UE5 hands `PlayerController`/`engine.playerRef` to the last spawned human pawn when loading an all-human save). The Host setup path now always rebinds `PlayerController`, `SetViewTargetWithBlend`, `engine.playerRef`, HUD, and selected region back to the Host's own lord pawn (`slot 0` or saved slot) — even when launching solo before teammates join — and cleanly silences other human pawns.
+- **Saved-Game Lobby Auto-Region Selection & Sidecar Auto-Heal:** Fixed `.coop.json` save metadata overwriting `profile.spawnRegionId` with UE5's internal short tag instead of the map catalog region ID (which caused the Saved Game wizard to silently reset your region to the first region on the map). Both daemon and UI now store and resolve canonical map region IDs alongside raw UE5 tags, **auto-heal existing `.coop.json` saves on read without re-saving**, resolve local sidecars for Steam Cloud `.sav` files, preserve absent teammates across manual saves, rebuild player save-locks when switching saves inside an active lobby, and accurately render reserved teammate pins on the map.
+- **AI Town Hijack Guard on Saved Games:** Fixed `pick_saved_lord_candidate` falling back to a settled AI opponent's pawn/region/buildings when `.coop.json` metadata was missing; returning players now match unclaimed human slots by name or normalized region first, and unmatched/new players cleanly spawn a fresh lord in an open region instead of taking over an AI lord's town.
+
+### Previous (v1.0.21)
 - **Simultaneous Host + Client Corpse-Burial Crash Fix (`coopnative v0.8.10`):** Added an AOB-verified native guard (`saveUnitsGuard` at `0x4B1F370`) that sanitizes dangling/destroyed corpse `AActor*` references (`ASMUnit + 0xCE0` and all sibling actor/task slots) right before `requestSaveFile` serializes units — preventing the simultaneous Host + Client desktop crash (`EXCEPTION_ACCESS_VIOLATION` at `+0x4B20103`) triggered when villagers finish burying battle corpses right before an autosave or SaveSync.
 - **Client 24-Man Retinue Rally & Command Fix (`coopnative v0.8.10`):** Extended native + Lua squad ownership repair, foreign-squad protection, and disband sync to cover **both Militia (`1`) and Retinue (`3`)** using `originRegion`, `currentRegion`, and `ARegion::retinueSquadID (+0x508)` across **all human lords** on both Host and Client — fixing Clients being unable to assemble or move their Manor Retinue after loading a co-op save.
 
