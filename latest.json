@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.24",
-    "nativeVersion":  "0.8.10",
-    "traceVersion":  "v65_SavedGameRehostFix",
+    "version":  "1.0.25",
+    "nativeVersion":  "0.8.11",
+    "traceVersion":  "v66_ArmyOwnerBanditCampFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-27T15:56:39Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.24.zip",
-    "patchSha256":  "9B0FD00E6EC8BE5E01F2C0BE912A80A8C50CD7D5C5C253FEF7A3FFC9EB2F0E69",
-    "patchBytes":  1295203,
+    "releasedAt":  "2026-11-27T20:07:49Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.25.zip",
+    "patchSha256":  "03AE55544CFC42316055FE7EE78F43A73A2AA2137C6751F850C17403DC8C0DF8",
+    "patchBytes":  1291027,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "933C78EC2712FEBC4D8909F5FD452BFF2C3A709C47E7E43B065D7926B5BE8C7A",
-    "fullBytes":  50251186,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.24",
-    "notes":  "- Fixed speed HUD button getting stuck showing Paused (||) while the game is running normally during Co-op clock-sync trims (0.96x, 1.04x, 4.16x, 5.1x) or 6x speed cap; W_HUD_TimerV2 now stays synced to the active speed tier\n- Fixed +/- speed hotkeys (increaseGameSpeed / decreaseGameSpeed) becoming unresponsive during fractional Co-op clock-sync trims\n- Cleaned up README.txt build note (Manor Lords 0.8.117 standard Steam release)\n- Includes all v1.0.23 Windows 11 Smart App Control crash protection and signed Edge fallback fixes"
+    "fullSha256":  "F01636348D71B2CA76AF3C8FDDBB93A1B7767A02300E48170456200C7AE0CFD8",
+    "fullBytes":  50247010,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.25",
+    "notes":  "- Fixed armies losing control, becoming unselectable, or acting on their own when marching through another player\u0027s region (coopnative v0.8.11: ml_is_own_regional_squad now checks Retinue retinueSquadID and Militia originRegion/homeRegion strictly instead of reassigning FSquad.ownerPawn to currentRegion\u0027s owner)\n- Fixed infinite Bandit Camp / infinite treasury loot exploit and non-fighting phantom bandits standing next to player armies on Clients (world_events.lua + main.lua: Client camp-cleared watcher \u0026 unconditional respawn suppression, Retinue/Mercenary squadID detection, real isBandit pawn matching, and immediate Host camp demolition sync)\n- Blocked remote diplomacy sync from ever calling declarePeace on Bandit pawns (hooks_commands.lua) and enforced periodic bandit hostility alignment on Clients\n- Added extra local-army ownership protection in remote squad sync (npc_mirror.lua)"
 }

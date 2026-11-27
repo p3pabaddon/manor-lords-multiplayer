@@ -32,11 +32,16 @@
 
 ## Download
 
-- **Direct Download (v1.0.24):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
+- **Direct Download (v1.0.25):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1.2 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.24
+### What's Fixed in v1.0.25
+- **Army Control Loss / Unselectable Squads Fix (`coopnative v0.8.11`):** Fixed a bug where marching a Militia or Retinue squad into a teammate's region caused `ml_is_own_regional_squad()` to fall back to `currentRegion` and flip `FSquad.ownerPawn` to the other lord on both PCs — locking players out of selecting or commanding their own armies and dropping move orders. Ownership repair now strictly respects `ARegion::retinueSquadID` for Retinue and `FSquad::originRegion` / `ASMUnit::homeRegion` for Militia, paired with an extra local-owner guard in `npc_mirror.lua`.
+- **Infinite Bandit Camp / Infinite Treasury & Non-Fighting Phantom Bandits Fix:** Fixed Clients looting a Bandit Camp with Retinue/Mercenaries failing to notify the Host (`has_living_squad_near` previously checked `assignedSquadID` which is `0` for Retinue/Mercs and hardcoded `owner == 5`), which caused Client `world.state` to repeatedly respawn the same camp + 18 Host-nonexistent phantom bandits every ~100s that followed armies without fighting and allowed infinite treasury looting. Clients now track and suppress cleared camps immediately via `world_events.tick()` + `world.campCleared` reminders until Host demolishes the camp, and Host accepts `campCleared` using live `squadID` and real `isBandit` pawn checks.
+- **Bandit Hostility Protection:** Blocked remote diplomacy sync (`apply_remote_enemies`, `declarePeace`, `setRelation`) from ever making peace with Bandit pawns (`isBandit == true`), and enabled periodic bandit hostility alignment on both Host and Client.
+
+### Previous (v1.0.24)
 - **Speed HUD Stuck Showing Paused (`||`) Fix:** Fixed a visual bug where Manor Lords' bottom-right speed bar highlighted the **Paused (`||`)** icon while the game was running normally at 1x/4x/6x during Co-op clock-sync trims (such as `0.96x`, `1.04x`, `4.16x`, or `5.1x`) or before `gameSpeed3_value` synced to the `6x` cap. Vanilla `getGameSpeedID()` checks exact float equality and falls back to `0` (Paused) on fractional speeds; `clock_sync.lua` and `speed_vote.lua` now keep `W_HUD_TimerV2` locked to the active speed button automatically.
 - **Speed `+` / `-` Hotkeys During Sync Trims:** Fixed keyboard `+` / `-` speed hotkeys (`increaseGameSpeed` / `decreaseGameSpeed`) silently doing nothing while Co-op clock sync was applying a fractional trim.
 - **Docs Cleanup:** Removed outdated beta-branch wording from `README.txt` (Manor Lords `0.8.117` is the current standard Steam build).
