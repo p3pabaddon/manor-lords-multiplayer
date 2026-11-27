@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.23",
+    "version":  "1.0.24",
     "nativeVersion":  "0.8.10",
     "traceVersion":  "v65_SavedGameRehostFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-27T14:55:56Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.23.zip",
-    "patchSha256":  "8C689D4DF47C0D781E1D4F74630F13D85997F40E6B0E01390BFBE4BAB6BA4F63",
-    "patchBytes":  1293577,
+    "releasedAt":  "2026-11-27T15:56:39Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.24.zip",
+    "patchSha256":  "9B0FD00E6EC8BE5E01F2C0BE912A80A8C50CD7D5C5C253FEF7A3FFC9EB2F0E69",
+    "patchBytes":  1295203,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "5C68191966C6AC8341FCB12D7C22919A65963B0F770B759577108023D27C2698",
-    "fullBytes":  50249560,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.23",
-    "notes":  "- Fixed Co-op background service crashing on startup when Windows 11 Smart App Control or antivirus blocks CoopOverlay.exe or SteamBridge.exe (added async ChildProcess error/early-exit handlers across coop_daemon.mjs, steam_transport.mjs, and ui_server.mjs)\n- Added automatic Microsoft-signed Edge (--app) / system browser fallback whenever CoopOverlay.exe is blocked by OS security policy, stopping repeated Windows Security popups on F10/Multiplayer clicks\n- Includes all v1.0.22 fixes: saved-game reload Host pawn/camera/HUD/region rebind, saved-game lobby auto-region selection \u0026 legacy .coop.json auto-heal, Steam Cloud sidecar fallback, and AI town hijack guard"
+    "fullSha256":  "933C78EC2712FEBC4D8909F5FD452BFF2C3A709C47E7E43B065D7926B5BE8C7A",
+    "fullBytes":  50251186,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.24",
+    "notes":  "- Fixed speed HUD button getting stuck showing Paused (||) while the game is running normally during Co-op clock-sync trims (0.96x, 1.04x, 4.16x, 5.1x) or 6x speed cap; W_HUD_TimerV2 now stays synced to the active speed tier\n- Fixed +/- speed hotkeys (increaseGameSpeed / decreaseGameSpeed) becoming unresponsive during fractional Co-op clock-sync trims\n- Cleaned up README.txt build note (Manor Lords 0.8.117 standard Steam release)\n- Includes all v1.0.23 Windows 11 Smart App Control crash protection and signed Edge fallback fixes"
 }

@@ -32,11 +32,16 @@
 
 ## Download
 
-- **Direct Download (v1.0.23):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
+- **Direct Download (v1.0.24):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1.2 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.23
+### What's Fixed in v1.0.24
+- **Speed HUD Stuck Showing Paused (`||`) Fix:** Fixed a visual bug where Manor Lords' bottom-right speed bar highlighted the **Paused (`||`)** icon while the game was running normally at 1x/4x/6x during Co-op clock-sync trims (such as `0.96x`, `1.04x`, `4.16x`, or `5.1x`) or before `gameSpeed3_value` synced to the `6x` cap. Vanilla `getGameSpeedID()` checks exact float equality and falls back to `0` (Paused) on fractional speeds; `clock_sync.lua` and `speed_vote.lua` now keep `W_HUD_TimerV2` locked to the active speed button automatically.
+- **Speed `+` / `-` Hotkeys During Sync Trims:** Fixed keyboard `+` / `-` speed hotkeys (`increaseGameSpeed` / `decreaseGameSpeed`) silently doing nothing while Co-op clock sync was applying a fractional trim.
+- **Docs Cleanup:** Removed outdated beta-branch wording from `README.txt` (Manor Lords `0.8.117` is the current standard Steam build).
+
+### Previous (v1.0.23)
 - **Windows 11 Smart App Control / Overlay Block Resilience:** Fixed `coop_daemon.mjs` crashing with an unhandled `spawn` error when Windows 11 Smart App Control or antivirus blocks unsigned `CoopOverlay.exe` (or `SteamBridge.exe`). The daemon now catches policy-block errors cleanly and **automatically falls back to a Microsoft-signed Edge (`--app`) / system browser portal window** without repeating Windows Security popups.
 
 ### Previous (v1.0.22)
