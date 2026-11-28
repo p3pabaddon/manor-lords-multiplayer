@@ -32,11 +32,14 @@
 
 ## Download
 
-- **Direct Download (v1.0.27):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
+- **Direct Download (v1.0.28):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (49.2 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1.2 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.27
+### What's Fixed in v1.0.28
+- **Hotfix for `msvcp140` / `coopnative` Crash (`0x0000000000000000`):** Rebuilt `coopnative.dll` (`v0.8.14`) with the static `/MT` C++ runtime (and `_DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR`), removing the accidental dynamic `msvcp140.dll` dependency introduced in `v1.0.27` that caused an immediate `EXCEPTION_ACCESS_VIOLATION` inside `msvcp140` on PCs with older Visual C++ Redistributables.
+
+### Previous (v1.0.27)
 - **4x Lobby Speed Cap Host Freeze Fix (`speed_vote.lua`):** Fixed a critical hang where setting the lobby speed cap to `4x` overwrote `pawn.gameSpeed3_value = 4.0` (colliding with Speed 2 = `4.0`), causing `decreaseGameSpeed` at `4x` to trap the GameThread in an infinite Blueprint loop (`decreaseGameSpeed <-> changeGameSpeed`) in Shipping builds. `gameSpeed3_value` is now strictly kept `>= 6.0` with automatic pre-call self-healing.
 - **Stale Save World Rollback / Day-1 Reset Prevention (`coop_daemon.mjs`, `ui_server.mjs`, `perspective.lua`, `hooks_commands.lua`):** Fixed a catastrophic bug where clicking **Trigger F5 Save Sync** in the overlay (`/api/save-sync`) or hitting a 15s save timeout streamed an outdated `coop_sync.sav` still sitting on disk (e.g. from Day 1), wiping everyone's progress back to match start. `/api/save-sync` now starts a fresh authoritative world resync, `broadcastSaveSync` strictly refuses any `.sav` file older than the current sync/launch start timestamp, periodic/manual resyncs skip cleanly if Host Lua IPC is unresponsive, and failed/timed-out saves cleanly resume the match instead of sending stale files.
 - **Manor / Castle Planner / Wooden Wall Crash & Huge Castle Zone Fix (`coopnative v0.8.14` + Lua):** Added 4 AOB-verified native guards (`openCastlePlannerGuard`, `updateCastleCostUIGuard`, `plannerRefreshGuard`, `convertBlueprintsGuard`), native `coop_region_by_loc`, and the full native wall-segment rebuild chain (`buildWallSegments -> updateRoadVisuals -> smoothPoints -> spawnRoadMeshes -> roadWallInit`, preserving stone/wood wall types). Also added strict owner/region/bounds guards in `hooks_commands.lua`, `bld_sync.lua`, and `entity_resolver.lua` to stop remote Manors from spawning at `(0,0)` or inside another player's region and prevent sunk/out-of-bounds blueprints from stretching a huge "castle zone" across the map.
