@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.25",
-    "nativeVersion":  "0.8.11",
-    "traceVersion":  "v66_ArmyOwnerBanditCampFix",
+    "version":  "1.0.26",
+    "nativeVersion":  "0.8.13",
+    "traceVersion":  "v67_FalseDefeatRoadsBordersDipFix",
     "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-27T20:07:49Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.25.zip",
-    "patchSha256":  "03AE55544CFC42316055FE7EE78F43A73A2AA2137C6751F850C17403DC8C0DF8",
-    "patchBytes":  1291027,
+    "releasedAt":  "2026-11-28T09:52:59Z",
+    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.26.zip",
+    "patchSha256":  "32F24ED02B201F23E5EACD7F061FD31FCA556B1D26C62430290B245BBF08EBCC",
+    "patchBytes":  1297927,
     "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "F01636348D71B2CA76AF3C8FDDBB93A1B7767A02300E48170456200C7AE0CFD8",
-    "fullBytes":  50247010,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.25",
-    "notes":  "- Fixed armies losing control, becoming unselectable, or acting on their own when marching through another player\u0027s region (coopnative v0.8.11: ml_is_own_regional_squad now checks Retinue retinueSquadID and Militia originRegion/homeRegion strictly instead of reassigning FSquad.ownerPawn to currentRegion\u0027s owner)\n- Fixed infinite Bandit Camp / infinite treasury loot exploit and non-fighting phantom bandits standing next to player armies on Clients (world_events.lua + main.lua: Client camp-cleared watcher \u0026 unconditional respawn suppression, Retinue/Mercenary squadID detection, real isBandit pawn matching, and immediate Host camp demolition sync)\n- Blocked remote diplomacy sync from ever calling declarePeace on Bandit pawns (hooks_commands.lua) and enforced periodic bandit hostility alignment on Clients\n- Added extra local-army ownership protection in remote squad sync (npc_mirror.lua)"
+    "fullSha256":  "3CDBABE3C88E845247E7EBEA91E39C94F23FE3A6781C9C11F60AEF4893624F54",
+    "fullBytes":  50253910,
+    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.26",
+    "notes":  "- Fixed false defeat state, black-and-white map, and locked Save Game button (\u0027You have been defeated.\u0027) triggered when an NPC lord starts claiming a region (coopnative v0.8.13 guards + automatic self-heal for already affected saves)\n- Enabled cross-border road building and connecting directly between peaceful/allied human co-op players\u0027 regions (AI, bandit, unclaimed, and enemy regions stay blocked)\n- Fixed missing colored region borders for human co-op players on both the 3D terrain and Paper Map view (auto-refreshed on join, load, and claim)\n- Fixed F7 Co-op Diplomacy menu flashing open and immediately closing itself (CoopOverlay.exe)\n- Fixed 1-Click Updater staying on an old version on Windows PCs with 8.3 short %TEMP% paths"
 }

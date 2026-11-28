@@ -32,11 +32,18 @@
 
 ## Download
 
-- **Direct Download (v1.0.25):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
+- **Direct Download (v1.0.26):** [ManorLords_Multiplayer_Mod.zip](https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip) (47.9 MB)
 - **One-Click Delta Updater:** Existing v1.0.8+ users can double-click `4_CHECK_AND_UPDATE.bat` to apply the ~1.2 MB delta patch automatically.
 - **Nexus Mods:** https://www.nexusmods.com/manorlords/mods/465
 
-### What's Fixed in v1.0.25
+### What's Fixed in v1.0.26
+- **False Defeat / Black-and-White Map / Locked Save Game Fix (`coopnative v0.8.13`):** Blocked non-local pawns (NPC/AI/Bandit lords) from triggering `APawnCPP::gameOver` (`0x4AC7020`) and `createAndPlayGameOverCinematic` (`0x4B374E0`), preventing the map from turning black-and-white and locking the Save Game button (`"You have been defeated."`) when an NPC begins claiming a region. Added automatic self-heal in `world_events.lua` so already affected saves automatically restore full color and saving while you still own settled regions (genuine local defeat remains untouched).
+- **Cross-Border Allied Roads (`coopnative v0.8.13`):** Patched all 3 native road-ownership checks inside `APawnCPP`'s road preview tick so peaceful/allied human co-op players can build and connect roads directly across shared region borders instead of being forced onto the King's Road. Unclaimed wilderness, AI lords, bandits, and enemies at war remain strictly blocked.
+- **Colored Region Borders for Human Co-op Players (`coopnative v0.8.13`):** Added native `coop_set_pawn_color` (`+0xBD8`) and `coop_redraw_region_masks` (`ARTSMultiEngineCPP::redrawRegionMask` `0x4CD7AE0`) alongside a 6-color fallback palette so every human co-op lord displays distinct colored borders on both the 3D terrain and Paper Map view, refreshed automatically on join, save load, and region claims.
+- **Co-op Diplomacy `F7` Hotkey Fix (`CoopOverlay.exe`):** Added missing debounce for `F7` in `CoopOverlay.cs` so pressing `F7` opens the Player-to-Player Diplomacy tab cleanly instead of flashing open and immediately closing ~100ms later.
+- **1-Click Updater Fix for Windows 8.3 `%TEMP%` Paths:** Fixed `tools/update_mod.ps1`, `deploy_coop.ps1`, and `collect_logs.ps1` failing to apply downloaded patches (appearing to "update" back to an older version) on Windows accounts whose `%TEMP%` uses 8.3 short paths (e.g., `USERNA~1`).
+
+### Previous (v1.0.25)
 - **Army Control Loss / Unselectable Squads Fix (`coopnative v0.8.11`):** Fixed a bug where marching a Militia or Retinue squad into a teammate's region caused `ml_is_own_regional_squad()` to fall back to `currentRegion` and flip `FSquad.ownerPawn` to the other lord on both PCs — locking players out of selecting or commanding their own armies and dropping move orders. Ownership repair now strictly respects `ARegion::retinueSquadID` for Retinue and `FSquad::originRegion` / `ASMUnit::homeRegion` for Militia, paired with an extra local-owner guard in `npc_mirror.lua`.
 - **Infinite Bandit Camp / Infinite Treasury & Non-Fighting Phantom Bandits Fix:** Fixed Clients looting a Bandit Camp with Retinue/Mercenaries failing to notify the Host (`has_living_squad_near` previously checked `assignedSquadID` which is `0` for Retinue/Mercs and hardcoded `owner == 5`), which caused Client `world.state` to repeatedly respawn the same camp + 18 Host-nonexistent phantom bandits every ~100s that followed armies without fighting and allowed infinite treasury looting. Clients now track and suppress cleared camps immediately via `world_events.tick()` + `world.campCleared` reminders until Host demolishes the camp, and Host accepts `campCleared` using live `squadID` and real `isBandit` pawn checks.
 - **Bandit Hostility Protection:** Blocked remote diplomacy sync (`apply_remote_enemies`, `declarePeace`, `setRelation`) from ever making peace with Bandit pawns (`isBandit == true`), and enabled periodic bandit hostility alignment on both Host and Client.
