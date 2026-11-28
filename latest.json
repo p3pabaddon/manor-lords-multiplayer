@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.26",
-    "nativeVersion":  "0.8.13",
-    "traceVersion":  "v67_FalseDefeatRoadsBordersDipFix",
-    "minBaseVersion":  "1.0.8",
-    "releasedAt":  "2026-11-28T09:52:59Z",
-    "patchUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.26.zip",
-    "patchSha256":  "32F24ED02B201F23E5EACD7F061FD31FCA556B1D26C62430290B245BBF08EBCC",
-    "patchBytes":  1297927,
-    "fullUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
-    "fullSha256":  "3CDBABE3C88E845247E7EBEA91E39C94F23FE3A6781C9C11F60AEF4893624F54",
-    "fullBytes":  50253910,
-    "releaseUrl":  "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.26",
-    "notes":  "- Fixed false defeat state, black-and-white map, and locked Save Game button (\u0027You have been defeated.\u0027) triggered when an NPC lord starts claiming a region (coopnative v0.8.13 guards + automatic self-heal for already affected saves)\n- Enabled cross-border road building and connecting directly between peaceful/allied human co-op players\u0027 regions (AI, bandit, unclaimed, and enemy regions stay blocked)\n- Fixed missing colored region borders for human co-op players on both the 3D terrain and Paper Map view (auto-refreshed on join, load, and claim)\n- Fixed F7 Co-op Diplomacy menu flashing open and immediately closing itself (CoopOverlay.exe)\n- Fixed 1-Click Updater staying on an old version on Windows PCs with 8.3 short %TEMP% paths"
+    "version": "1.0.27",
+    "nativeVersion": "0.8.14",
+    "traceVersion": "v68_SpeedFreezeStaleSaveManorWallFix",
+    "minBaseVersion": "1.0.8",
+    "releasedAt": "2026-11-28T15:13:03Z",
+    "patchUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Coop_Patch_v1.0.27.zip",
+    "patchSha256": "EBD581C56D95A3A37BBE2DEC6F3B5742BADB73833CB4AC23A87A63E478C58D87",
+    "patchBytes": 1136167,
+    "fullUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/raw/main/ManorLords_Multiplayer_Mod.zip",
+    "fullSha256": "657CB64F0050D87C3E12C98332276372CBFEFCD8DB0F9C8752295A9635A57697",
+    "fullBytes": 51397122,
+    "releaseUrl": "https://github.com/p3pabaddon/manor-lords-multiplayer/releases/tag/v1.0.27",
+    "notes": "- Fixed critical Host freeze when lobby speed cap is set to 4x (gameSpeed3_value collided with Speed 2 = 4.0 and triggered an infinite decreaseGameSpeed <-> changeGameSpeed loop in Shipping builds)\n- Fixed world resetting back to Day 1 when pressing F5 Save Sync in the overlay or on save timeout (now triggers a fresh world resync, strictly blocks streaming any outdated coop_sync.sav older than the current sync, skips periodic resync if Host is unresponsive, and cleanly resumes on save failure)\n- Fixed Manor / Castle Planner / wooden wall crashes and cross-map huge Castle Zones (coopnative v0.8.14 guards + native wall-segment rebuild chain + strict owner/region/bounds checks blocking (0,0) and wrong-region Manor spawns)"
 }
